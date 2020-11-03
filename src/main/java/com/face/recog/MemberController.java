@@ -14,8 +14,20 @@ public class MemberController {
 //	private MemberMyBatisDAO dao;
 	
 	
-	@RequestMapping("/list.do")
-	public String list() {		
-		return "member/memberList";
+	@RequestMapping("/main.do")
+	public String main() {		
+		return "main";
+	}
+	
+	@RequestMapping("/mainService.do")
+	public String mainService() {		
+		return "mainService/mainService";
+	}
+	
+
+	@RequestMapping("/myPage.do")
+	public String myPage() {		
+		return "myPage/myPage";
 	}
 }
+

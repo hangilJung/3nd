@@ -54,7 +54,9 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-		
+	
+	
+	
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
@@ -63,5 +65,9 @@
 		초기 상태일때에만 HomeController의 Mapping ("/") 됩니다...
 		 -->
 	</servlet-mapping>
+	
+	<welcome-file-list>
+	    <welcome-file>main.jsp</welcome-file>
+	</welcome-file-list>
 
 </web-app>
