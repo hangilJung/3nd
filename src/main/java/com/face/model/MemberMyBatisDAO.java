@@ -13,11 +13,22 @@ public class MemberMyBatisDAO {
 	   
 	   @Autowired   
 	   private SqlSessionFactory sqlSessionFactory; // SqlSession
-	 
-	   public List<MemberVO> getAllList(){
-	      SqlSession session=sqlSessionFactory.openSession();
-	      List<MemberVO> list=session.selectList("getAllList");
-	      session.close(); // 반납
-	      return list;
+	 	   
+	   public int memberInsert(MemberVO vo){
+		      SqlSession session=sqlSessionFactory.openSession();
+		      int cnt = session.insert("memberInsert", vo);
+		      session.commit();
+		      session.close(); // 반납
+		      return cnt;
 	   }
+
+	public MemberVO login(MemberVO vo) {
+		  SqlSession session=sqlSessionFactory.openSession();
+		  MemberVO info= session.selectOne("login", vo);
+		  session.close();
+		  return info;
+	}
+	
+	
+	
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +12,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="icon" href="img/favicon.png" type="image/png" />
-    <title>About Us</title>
+    <title>About Us</title>        
     <style type="text/css">
 		a:link { color: red; text-decoration: none;}
 		a:visited { color: black; text-decoration: none;}
@@ -39,18 +40,20 @@
    <!-- Header -->
 	<div class="container">
 		<div id="header">
-        	<a><img src="resources/img/logo.png" alt=""/></a>
+        	<a href="${cpath}/main.do"><img src="resources/img/logo.png" alt=""/></a>
         </div>
-        <div class="mid">
-        <div class="mid">
-        	<input type="checkbox" name = "allAgree">
-        	<span class="mar" id="my-underline">이용약관,  개인정보 수집 및 이용, 얼굴사진<br> 수집  및 이용에 모두 동의합니다.</span> 
+        
+        <div class="onemid" style="margin-bottom:100px;">
+        	<input type="checkbox" name = "allAgree" onclick="ch()">
+        	<span class="mar" id="my-underline check_all">이용약관,  개인정보 수집 및 이용, 얼굴사진 수집  및 이용에 <br>모두 동의합니다.</span> 
         	<ul class="ul-style">
         		<li class="terms_bx">
-        			<input type="checkbox" name = "use">
-        			<span>이용약관 동의<small>(필수)</small></span>
-        			<div class="mar">
-        				<textarea class="t-box box_pad" readonly>여러분을 환영합니다.
+        			<div class="checkbox_group">
+        			<div class="di_mar" style="text-align:left;">	
+        				<input type="checkbox" name = "use" id="check_1">
+        				<span>이용약관 동의<small>(필수)</small></span>
+        				<div class="mar">
+        					<textarea class="t-box box_pad" readonly>여러분을 환영합니다.
 꿀물 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 꿀물 서비스의 이용과 관련하여 꿀물 서비스를 제공하는 꿀물 주식회사(이하 ‘꿀물’)와 이를 이용하는 꿀물 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 꿀물 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
 
 꿀물 서비스를 이용하시거나 꿀물 서비스 회원으로 가입하실 경우 여러분은 본 약관 및 관련 운영 정책을 확인하거나 동의하게 되므로, 잠시 시간을 내시어 주의 깊게 살펴봐 주시기 바랍니다.
@@ -168,13 +171,16 @@
 공지 일자: 2020년 11월 3일
 적용 일자: 2020년 11월 3일
 꿀물 서비스와 관련하여 궁금하신 사항이 있으시면 고객센터(대표번호: Top Secret/ 평일 14:00~14:01)로 문의 주시기 바랍니다.</textarea>
+        				</div>
+        			</div>
         			</div>
         		</li>
         		<li class="terms_bx">
-        			<input type="checkbox" name = "usePrivacy" style="text-align:left;">
-        			<span>개인정보 수집 및 이용 동의<small>(필수)</small></span>
-        			<div>
-        				<textarea class="t-box box_pad" readonly>개인정보보호법에 따라 꿀물에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
+        			<div class="di_mar" style="text-align:left;">	
+        				<input type="checkbox" name = "usePrivacy" style="text-align:left;" id="check_2">
+        				<span>개인정보 수집 및 이용 동의<small>(필수)</small></span>
+        				<div>
+        					<textarea class="t-box box_pad" readonly>개인정보보호법에 따라 꿀물에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.
 
 1. 수집하는 개인정보
 이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 꿀물 서비스를 회원과 동일하게 이용할 수 있습니다. 이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 꿀물은 서비스 이용을 위해 필요한 최소한의 개인정보를 수집합니다.
@@ -229,13 +235,15 @@ QR코드 등록 정보:삭제 시점으로부터6개월 보관
 
 4. 개인정보 수집 및 이용 동의를 거부할 권리
 이용자는 개인정보의 수집 및 이용 동의를 거부할 권리가 있습니다. 회원가입 시 수집하는 최소한의 개인정보, 즉, 필수 항목에 대한 수집 및 이용 동의를 거부하실 경우, 회원가입이 어려울 수 있습니다.</textarea>
-        			</div> 
+        				</div> 
+        			</div>
         		</li>
         		<li class="terms_bx">
-        			<input type="checkbox" name = "useFace">
-        			<span>얼굴 사진 수집 및 이용<small>(필수)</small></span> 
-        			<div>
-        				<textarea class="t-box box_pad" readonly>얼굴인식 이용약관에 동의하시면, 얼굴를 활용한 광고 정보 수신 등을 포함하는 꿀물 위치기반 서비스를 이용할 수 있습니다.
+        			<div class="di_mar" style="text-align:left;">
+        				<input type="checkbox" name = "useFace" id="check_3">
+        				<span>얼굴 사진 수집 및 이용<small>(필수)</small></span> 
+        				<div>
+        					<textarea class="t-box box_pad" readonly>얼굴인식 이용약관에 동의하시면, 얼굴를 활용한 광고 정보 수신 등을 포함하는 꿀물 위치기반 서비스를 이용할 수 있습니다.
 
 
 제 1 조 (목적)
@@ -309,6 +317,7 @@ QR코드 등록 정보:삭제 시점으로부터6개월 보관
 위치정보 관리책임자 : N/A
 전화번호 : Topsecret
 이메일 주소 : Topsecret</textarea>
+        				</div>
         			</div>
         		</li>        		
         	</ul>
@@ -317,17 +326,16 @@ QR코드 등록 정보:삭제 시점으로부터6개월 보관
         			<a href="#" style="display:inline;" class="btn btn-secondary disabled btn-lg" role="button">취소</a>
         		</<span>
         		<span>
-        			<a href="#" style="display:inline;" class="btn btn-primary btn-lg">확인</a>
+        			<a onclick="chnx()" style="display:inline; color:white;" class="btn btn-primary btn-lg" >확인</a>
         		</span>
         	</div>       	
-        </div>
         </div>
         <!-- //body -->
         <!-- footer -->
         <div id="foot">
         	<div >
         		<p>회사, 동아리 등 단체에서 사용할 ID가 필요하세요? 안됩니다</p>
-        		        		<ul class="ul-style" style="display: table; margin: auto; padding:0;">
+        		<ul class="ul-style" style="display: table; margin: auto; padding:0;">
         			<li>이용약관</li>
         			<li>개인정보처리방침</li>
         			<li>책임의 한계와 법적고지</li>
@@ -352,5 +360,29 @@ QR코드 등록 정보:삭제 시점으로부터6개월 보관
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
+    <script type="text/javascript">
+    
+    function ch(){    	
+    	$('#check_1').prop("checked", true);
+    	$('#check_2').prop("checked", true);
+    	$('#check_3').prop("checked", true);    	
+    }
+    
+    function chnx(){
+    	location.href="${cpath}/sign2.do"
+    }
+    
+    
+   
+   /*  $(".checkbox_group").on("click", "#check_all", function () {
+    	  var checked = $(this).is(":checked");
+
+    	  if(checked){
+    	  	$(this).parents(".checkbox_group").find('input').prop("checked", true);
+    	  } else {
+    	  	$(this).parents(".checkbox_group").find('input').prop("checked", false);
+    	  }
+    	}); */
+    </script>
   </body>
 </html>

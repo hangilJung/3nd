@@ -1,5 +1,8 @@
+<%@page import="com.face.model.MemberVO"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+<c:set var="info" scope="session" value="${info}"/>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -148,10 +151,19 @@
                 <h2 class="text-uppercase mt-4 mb-5">
                   One Step Ahead This Season
                 </h2>
+                <c:choose>
+                <c:when test="${info == null }">
                 <div>
-                  <a href="#" class="primary-btn2 mb-3 mb-sm-0">learn more</a>
-                  <a href="#" class="primary-btn ml-sm-3 ml-0">see course</a>
+                  <a href="${cpath}/loginForm.do" class="primary-btn2 mb-3 mb-sm-0">로그인</a>
+                  <a href="${cpath}/sign.do" class="primary-btn ml-sm-3 ml-0">회원가입</a>
                 </div>
+                </c:when>
+                <c:otherwise>
+                <div>
+                  <p>:) ${info.getEmail()}님 환영합니다.</p>
+                </div>
+                </c:otherwise>
+                </c:choose>
               </div>
             </div>
           </div>

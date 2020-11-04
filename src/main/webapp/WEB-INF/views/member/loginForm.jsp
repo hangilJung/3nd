@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +13,7 @@
     />
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title>About Us</title>
+   
     <style type="text/css">
 		a:link { color: red; text-decoration: none;}
 		a:visited { color: black; text-decoration: none;}
@@ -19,10 +21,10 @@
 		ul li{
 			list-style-type: none;
 			float:left;
-			margin-left:10px;
-			
+			margin-left:10px;			
 		}	
 	</style>
+	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="resources/css/bootstrap.css" />
     <link rel="stylesheet" href="resources/css/flaticon.css" />
@@ -36,41 +38,26 @@
   </head>
 
   <body>
-  	<form action="" methods="post">
+  	<form action="${cpath}/login.do" method="post">
 		<div class="container">
 			<!-- header -->
 			<div id="header">
-        		<a><img src="resources/img/logo.png" alt=""/></a>
+        		<a href="${cpath}/main.do"><img src="resources/img/logo.png" alt=""/></a>
        		</div>
        		<!-- header -->
        		<!-- body -->
         	<div class="mid">
-        	<div class="float-use">
         		<div class="di_mar">
-        			<p class="text-id">이메일</p>
-        			<input type="text" class="text-wh" name="email"/>
+        			<input type="text" class="text-wh" name="email" placeholder="아이디"/>        			
         		</div>
         		<div class="di_mar">
-        			비밀번호
-        			<input type="password" class="text-wh" name="pw"/>
-        		</div>
-        		<div class="di_mar">
-        			비밀번호 재확인
-        			<input type="password" class="text-wh" name="pw2"/>
-        		</div>
-        		<div class="di_mar">
-        			전화번호
-        			<input type="passwd" class="text-wh"/>
-        		</div>
-        		<div>
-        			얼굴인식 등록
-        		</div>        	
+        			<input type="password" class="text-wh" name="pw" placeholder="비밀번호"/>
+        		</div>   	
         		<div class="btn-group-vertical">
         			<span>
-        				<input href="#"  type="submit"  value="가입하기" style="display:inline; width:408px;" class="btn btn-primary btn-lg"></input>
+        				<input onclick="href='${cpath}/main.do'" type="submit"  value=":)로그인 " style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
         			</span>
         		</div>       	
-        	</div>
         	</div>
         	</div>
         </form>
@@ -102,5 +89,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
+    
   </body>
 </html>
