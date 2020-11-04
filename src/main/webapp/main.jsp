@@ -9,7 +9,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link rel="icon" href="resources/img/favicon.png" type="image/png" />
     <title>Edustage Education</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="resources/css/bootstrap.css" />
@@ -48,7 +48,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="index.html"
-              ><img src="img/logo.png" alt=""
+              ><img src="resources/img/logo.png" alt=""
             /></a>
             <button
               class="navbar-toggler"
@@ -236,7 +236,7 @@
             <div class="owl-carousel active_course">
               <div class="single_course">
                 <div class="course_head">
-                  <img class="img-fluid" src="img/courses/c1.jpg" alt="" />
+                  <img class="img-fluid" src="resources/img/courses/c1.jpg" alt="" />
                 </div>
                 <div class="course_content">
                   <span class="price">$25</span>
@@ -252,7 +252,7 @@
                     class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
                   >
                     <div class="authr_meta">
-                      <img src="img/courses/author1.png" alt="" />
+                      <img src="resources/img/courses/author1.png" alt="" />
                       <span class="d-inline-block ml-2">Cameron</span>
                     </div>
                     <div class="mt-lg-0 mt-3">
@@ -269,7 +269,7 @@
 
               <div class="single_course">
                 <div class="course_head">
-                  <img class="img-fluid" src="img/courses/c2.jpg" alt="" />
+                  <img class="img-fluid" src="resources/img/courses/c2.jpg" alt="" />
                 </div>
                 <div class="course_content">
                   <span class="price">$25</span>
@@ -285,7 +285,7 @@
                     class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
                   >
                     <div class="authr_meta">
-                      <img src="img/courses/author2.png" alt="" />
+                      <img src="resources/img/courses/author2.png" alt="" />
                       <span class="d-inline-block ml-2">Cameron</span>
                     </div>
                     <div class="mt-lg-0 mt-3">
@@ -302,7 +302,7 @@
 
               <div class="single_course">
                 <div class="course_head">
-                  <img class="img-fluid" src="img/courses/c3.jpg" alt="" />
+                  <img class="img-fluid" src="resources/img/courses/c3.jpg" alt="" />
                 </div>
                 <div class="course_content">
                   <span class="price">$25</span>
@@ -318,7 +318,7 @@
                     class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
                   >
                     <div class="authr_meta">
-                      <img src="img/courses/author3.png" alt="" />
+                      <img src="resources/img/courses/author3.png" alt="" />
                       <span class="d-inline-block ml-2">Cameron</span>
                     </div>
                     <div class="mt-lg-0 mt-3">
@@ -431,7 +431,7 @@
         <div class="row justify-content-center d-flex align-items-center">
           <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
             <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="img/trainer/t1.jpg" alt="" />
+              <img class="img-fluid" src="resources/img/trainer/t1.jpg" alt="" />
             </div>
             <div class="meta-text text-sm-center">
               <h4>Mated Nithan</h4>
@@ -453,7 +453,7 @@
 
           <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
             <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="img/trainer/t2.jpg" alt="" />
+              <img class="img-fluid" src="resources/img/trainer/t2.jpg" alt="" />
             </div>
             <div class="meta-text text-sm-center">
               <h4>David Cameron</h4>
@@ -475,7 +475,7 @@
 
           <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
             <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="img/trainer/t3.jpg" alt="" />
+              <img class="img-fluid" src="resources/img/trainer/t3.jpg" alt="" />
             </div>
             <div class="meta-text text-sm-center">
               <h4>Jain Redmel</h4>
@@ -497,7 +497,7 @@
 
           <div class="col-lg-3 col-md-6 col-sm-12 single-trainer">
             <div class="thumb d-flex justify-content-sm-center">
-              <img class="img-fluid" src="img/trainer/t4.jpg" alt="" />
+              <img class="img-fluid" src="resources/resources/img/trainer/t4.jpg" alt="" />
             </div>
             <div class="meta-text text-sm-center">
               <h4>Nathan Macken</h4>
@@ -538,7 +538,7 @@
           <div class="col-lg-6 col-md-6">
             <div class="single_event position-relative">
               <div class="event_thumb">
-                <img src="img/event/e1.jpg" alt="" />
+                <img src="resources/img/event/e1.jpg" alt="" />
               </div>
               <div class="event_details">
                 <div class="d-flex mb-4">
@@ -564,7 +564,7 @@
           <div class="col-lg-6 col-md-6">
             <div class="single_event position-relative">
               <div class="event_thumb">
-                <img src="img/event/e2.jpg" alt="" />
+                <img src="resources/img/event/e2.jpg" alt="" />
               </div>
               <div class="event_details">
                 <div class="d-flex mb-4">
@@ -591,7 +591,7 @@
           <div class="col-lg-12">
             <div class="text-center pt-lg-5 pt-3">
               <a href="#" class="event-link">
-                View All Event <img src="img/next.png" alt="" />
+                View All Event <img src="resources/img/next.png" alt="" />
               </a>
             </div>
           </div>
@@ -619,7 +619,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t1.jpg" alt="" />
+                  <img src="resources/img/testimonials/t1.jpg" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -636,7 +636,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t2.jpg" alt="" />
+                  <img src="resources/img/testimonials/t2.jpg" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -653,7 +653,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t1.jpg" alt="" />
+                  <img src="resources/img/testimonials/t1.jpg" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -670,7 +670,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t2.jpg" alt="" />
+                  <img src="resources/img/testimonials/t2.jpg" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -687,7 +687,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t1.jpg" alt="" />
+                  <img src="resources/img/testimonials/t1.jpg" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -704,7 +704,7 @@
             <div class="testi_item">
               <div class="row">
                 <div class="col-lg-4 col-md-6">
-                  <img src="img/testimonials/t2.jpg" alt="" />
+                  <img src="resources/img/testimonials/t2.jpg" alt="" />
                 </div>
                 <div class="col-lg-8">
                   <div class="testi_text">
@@ -819,17 +819,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
-    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-    <script src="js/owl-carousel-thumb.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/mail-script.js"></script>
+    <script src="resources/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/js/popper.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="resources/js/owl-carousel-thumb.min.js"></script>
+    <script src="resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="resources/js/mail-script.js"></script>
     <!--gmaps Js-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="js/gmaps.min.js"></script>
-    <script src="js/theme.js"></script>
+    <script src="resources/js/gmaps.min.js"></script>
+    <script src="resources/js/theme.js"></script>
   </body>
 </html>
