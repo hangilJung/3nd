@@ -13,6 +13,14 @@
     />
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title>About Us</title>
+    <script type="text/javascript">
+    	
+    	function login(){
+    		location.href='${cpath}/main.do'
+    		if()
+    	}
+    	
+    </script>
    
     <style type="text/css">
 		a:link { color: red; text-decoration: none;}
@@ -55,7 +63,7 @@
         		</div>   	
         		<div class="btn-group-vertical">
         			<span>
-        				<input onclick="href='${cpath}/main.do'" type="submit"  value=":)로그인 " style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
+        				<input onclick="login()" type="submit"  value=":)로그인 " style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
         			</span>
         		</div>       	
         	</div>

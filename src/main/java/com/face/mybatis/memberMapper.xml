@@ -12,6 +12,11 @@
 	<!--========================= 로그인=================================== -->
 	<select id="login" resultType="MemberVO">
 		select * from face_member where email = #{email} and pw = #{pw}   
-	</select>	
+	</select>
+	
+	<!--========================= 이메일 중복 확인=================================== -->	
+	<select id="doubleCheck" resultType="int">
+		select count(*) from face_member where email = #{email}  
+	</select>
 	
 </mapper>

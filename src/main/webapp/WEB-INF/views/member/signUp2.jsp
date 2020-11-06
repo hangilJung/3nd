@@ -35,10 +35,12 @@
     <link rel="stylesheet" href="resources/css/style.css" />
     <!-- my css -->
     <link rel="stylesheet" href="resources/css/my.css" />
+    
+    
   </head>
 
   <body>
-  	<form name="myForm" action="${cpath}/insert.do" method="post">
+  	<form name="myForm" action="${cpath}/insert.do" method="post" onSubmit="return false;">
 		<div class="container">
 			<!-- header -->
 			<div id="header">
@@ -47,9 +49,10 @@
        		<!-- header -->
        		<!-- body -->
         	<div class="mid">
-        		<div class="di_mar">
-        			<p class="text-id">이메일</p>
-        			<input type="text" class="text-wh" name="email"/>        			
+        		<div class="di_mar" style="margin-bottom:35px;">
+        			<p class="text-id">이메일</p>${result}
+        			<input type="text" class="text-wh" name="email" id="email" />
+        			<button onclick="idCheck()" class="btn btn-primary">중복확인</button>        			
         		</div>
         		<div class="di_mar">
         			<p class="text-id">비밀번호</p>
@@ -57,18 +60,15 @@
         		</div>
         		<div class="di_mar">
         			<p class="text-id">비밀번호 재확인</p>
-        			<input type="password" class="text-wh" name="pw2"/>
+        			<input type="password" class="text-wh" id="pw2"/>
         		</div>
         		<div class="di_mar">
         			<p class="text-id" >전화번호</p>
         			<input type="passwd" class="text-wh" name="phone"/>
         		</div>
-        		<div>
-        			얼굴인식 등록
-        		</div>        	
         		<div class="btn-group-vertical">
         			<span>
-        				<input onclick="href='${cpath}/main.do'" type="submit"  value="가입하기" style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
+        				<input type="submit" value="가입하기" onClick="javascript:formCh()" style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
         			</span>
         		</div>       	
         	</div>
@@ -103,6 +103,47 @@
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
     <script type="text/javascript">
+   	
+    	function formCh(){
+    		if(document.myForm.email.value==''){
+    			alert("이메일을 입력하세요")
+    			document.myForm.email.focus();
+    		}else if(document.myForm.pw.value==''){
+    			alert("비밀번호를 입력하세요")
+    			document.myForm.pw.focus();
+    		}else if(document.myForm.pw2.value==''){
+    			alert("비밀번호 재확인을 입력하세요")
+    			document.myForm.pw.focus();
+    		}else if(document.myForm.phone.value==''){
+    			alert("전화번호를 입력하세요")
+    			document.myForm.phone.focus();
+    		}else {
+    			document.myForm.submit();
+    		}
+    	}
+    	
+    	function idCheck(){
+    		$.ajax({
+    			url : "${cpath}/doubleCheck.do",
+    			type : "post",
+    			dataType : "json",
+    			data : {"email" : $("#email").val()},
+    			success : function(data){
+    				var email = document.myForm.email
+    				if(data == 1){
+    					alert("중복된 이메일 입니다.");  
+    					email.value =null;
+    				}else if(data == 0){
+    					alert("사용가능한 아이디입니다.");
+    					document.myForm.pw.focus()
+    				}
+    			},
+    			error : function(){
+    				alert("에러")
+    			}
+    		})
+    		
+    	}
     	
     </script>
     

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 
 @Repository
@@ -13,7 +14,8 @@ public class MemberMyBatisDAO {
 	   
 	   @Autowired   
 	   private SqlSessionFactory sqlSessionFactory; // SqlSession
-	 	   
+	   
+	   //회원가입	   
 	   public int memberInsert(MemberVO vo){
 		      SqlSession session=sqlSessionFactory.openSession();
 		      int cnt = session.insert("memberInsert", vo);
@@ -21,13 +23,22 @@ public class MemberMyBatisDAO {
 		      session.close(); // 반납
 		      return cnt;
 	   }
-
-	public MemberVO login(MemberVO vo) {
-		  SqlSession session=sqlSessionFactory.openSession();
-		  MemberVO info= session.selectOne("login", vo);
-		  session.close();
-		  return info;
-	}
+	   
+	   //회원가입 시 이메일 중복 확인
+	   public int doubleCheck(String email) {
+		   SqlSession session=sqlSessionFactory.openSession();
+		   int result= session.selectOne("doubleCheck",email);		   
+		   session.close();
+		   return result;			
+	   }
+	   
+	   //로그인
+	   public MemberVO login(MemberVO vo) {
+		      SqlSession session=sqlSessionFactory.openSession();
+		      MemberVO info= session.selectOne("login", vo);
+		      session.close();
+		      return info;
+	   }
 	
 	
 	

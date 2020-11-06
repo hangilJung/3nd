@@ -1,15 +1,18 @@
 package com.face.recog;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.spi.LoggerFactory;
 import org.jsoup.helper.HttpConnection.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.face.model.MemberMyBatisDAO;
@@ -18,6 +21,7 @@ import com.face.model.MemberVO;
 
 @Controller
 public class MemberController {
+	
 	
 	@Autowired
 	private MemberMyBatisDAO dao;
@@ -60,9 +64,10 @@ public class MemberController {
 		return "redirect:/main.do";
 	}	
 	
-	
+	//로그아웃 글자 클릭
 	@RequestMapping("/logout.do")
-	public String logOut() {		
+	public String logOut(HttpSession session) {
+		session.removeAttribute("info");
 		return "redirect:/main.do";
 	}
 	
@@ -86,6 +91,16 @@ public class MemberController {
 	public String memberInsert(MemberVO vo) {
 		dao.memberInsert(vo);
 		return "redirect:/main.do";
+	}
+	
+	//회원가입 중 이메일의 중복을 확인해줌
+	@ResponseBody
+	@RequestMapping(value="doubleCheck.do", produces = "application/String; charset=utf-8")
+	//적어주기만 하면 무조건 session에 넘어간다 (의존성)
+	public String idCheck(String email, HttpSession session) {
+		int result = dao.doubleCheck(email);
+		String data = Integer.toString(result);
+		return data;	
 	}
 	//================= End 회원가입 ===========================
 }
