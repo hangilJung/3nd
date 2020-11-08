@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+<c:set var="info" scope="session" value="${info}"/>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +36,7 @@
 
   <body>
     <!--================ Start Header Menu Area =================-->
-    <header class="header_area white-header">
+    <header class="header_area">
       <div class="main_menu">
         <div class="search_input" id="search_input_box">
           <div class="container">
@@ -58,9 +60,9 @@
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand" href="index.html">
-              <img class="logo-2" src="img/logo2.png" alt="" />
-            </a>
+            <a class="navbar-brand logo_h" href="${cpath}/main.do"
+              ><img src="resources/img/logo2.png" alt=""
+            /></a>
             <button
               class="navbar-toggler"
               type="button"
@@ -79,11 +81,30 @@
               id="navbarSupportedContent"
             >
               <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="about-us.html">About</a>
+                  <a class="nav-link" href="${cpath}/main.do">홈</a>
+                </li>
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"      
+                    style="color:white;"
+                    >메인 서비스</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="${cpath}/allLecture.do">모든 강의</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="${cpath}/mainService.do">나의 강의</a>
+                    </li>
+                  </ul>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -93,51 +114,33 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >Pages</a
-                  >
+                    style="color:white;"
+                    >마이 페이지</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="courses.html">Courses</a>
+                      <a class="nav-link" href="blog.html">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="course-details.html"
-                        >Course Details</a
-                      >
+                      <a class="nav-link" href="single-blog.html">나의 학습</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="elements.html">Elements</a>
+                      <a class="nav-link" href="single-blog.html">집중도 분석 열람</a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item submenu dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >Blog</a
-                  >
-                  <ul class="dropdown-menu">
-                    <li class="nav-item">
-                      <a class="nav-link" href="blog.html">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html"
-                        >Blog Details</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link search" id="search">
-                    <i class="ti-search"></i>
-                  </a>
-                </li>
+                </li>      
+                <c:choose>
+                	<c:when test="${info != null }">
+                		<li class="nav-item">
+                  			<a href="${cpath}/logout.do" class="nav-link" >
+                  				<p>로그아웃</p>
+                  			</a>
+                		</li>
+                	</c:when>
+                	<c:otherwise>
+                		<li class="nav-item">
+                		</li>
+                	</c:otherwise>
+                </c:choose>
               </ul>
             </div>
           </div>
@@ -154,10 +157,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="banner_content text-center">
-                <h2>About Us</h2>
-                <div class="page_link">
-                  <a href="index.html">Home</a>
-                  <a href="about-us.html">About Us</a>
+                <h2>수강중인 강의</h2>
                 </div>
               </div>
             </div>
@@ -176,7 +176,7 @@
         <div class="list-group">
         	<h1 class="my-4">메인 서비스</h1>
           <a href="#" class="list-group-item">모든 강의</a>
-          <a href="#" class="list-group-item">나의 강의</a>
+          <a href="#" class="list-group-item">수강중인 강의</a>
         </div>
 
       </div>

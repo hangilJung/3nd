@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}"/>
-<!--  -->
 <c:set var="info" scope="session" value="${info}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +23,17 @@
     <!-- main css -->
     <link rel="stylesheet" href="resources/css/style.css" />
     <style type="text/css">
-		a:link { color: red; text-decoration: none;}
+		a:link { color: black; text-decoration: none;}
 		a:visited { color: black; text-decoration: none;}
-		a:hover { color: blue; text-decoration: underline;}	
+		a:hover { color: black; text-decoration: underline;}	
 		ul li{
 			list-style-type: none;
 			float:left;
 			margin-left:10px;			
 		}	
+		#id:hover{
+			
+		}
 	</style>
   </head>
 
@@ -96,10 +98,10 @@
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">모든 강의</a>
+                      <a class="nav-link" href="${cpath}/allLecture.do">모든 강의</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">나의 강의</a>
+                      <a class="nav-link" href="${cpath}/mainService.do" >수강중인 강의</a>
                     </li>
                   </ul>
                 </li> 
@@ -166,7 +168,7 @@
                 <c:choose>
                 	<c:when test="${info == null }">
                 		<div>
-                 	 		<a href="${cpath}/loginForm.do" class="primary-btn2 mb-3 mb-sm-0">로그인</a>
+                 	 		<a id="login" href="${cpath}/loginForm.do" class="primary-btn2 mb-3 mb-sm-0" style="color:white;">로그인</a>
                   			<a href="${cpath}/sign.do" class="primary-btn ml-sm-3 ml-0">회원가입</a>
                 		</div>
                 	</c:when>

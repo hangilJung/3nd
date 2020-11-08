@@ -32,17 +32,36 @@ public class MemberController {
 		return "main";
 	}
 	
-	//메인 서비스 페이지로 이동
-	@RequestMapping("/mainService.do")
-	public String mainService() {		
-		return "mainService/mainService";
-	}
 	
 	//마이 페이지로 이동
 	@RequestMapping("/myPage.do")
 	public String myPage() {		
 		return "myPage/myPage";
 	}
+	
+	
+	//================= Start 메인 서비스 페이지 ===========================
+	//메인 서비스 페이지로 이동
+	@RequestMapping("/mainService.do")
+	public String mainService() {		
+		return "mainService/mainService";
+	}
+	
+	//메인 서비스 메뉴바에서 모든 강의로 이동
+	@RequestMapping("/allLecture.do")
+	public String allLecture() {		
+		return "mainService/allLecture";
+	}
+	
+	//내가 볼 강의를 클릭하면 동영상이 나온다
+	@RequestMapping("/video.do")
+	public String video() {		
+		return "mainService/video";
+	}	
+	
+	//================= End 메인 서비스 페이지 ===========================
+	
+	
 	//================= Start 로그인 로그아웃 ===========================
 	//로그인 화면으로 이동
 	@RequestMapping("/loginForm.do")
