@@ -106,7 +106,7 @@
                   </ul>
                 </li> 
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">자습 타이머</a>
+                  <a class="nav-link" href="timerCalendar.do">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -122,10 +122,7 @@
                       <a class="nav-link" href="blog.html">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">나의 학습</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">집중도 분석 열람</a>
+                      <a class="nav-link" href="myLectureList.do">집중도 분석 열람</a>
                     </li>
                   </ul>
                 </li>      
