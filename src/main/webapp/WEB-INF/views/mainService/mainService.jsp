@@ -125,7 +125,7 @@
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="single-blog.html">집중도 분석 열람</a>
-                    </li>
+                    </li> 
                   </ul>
                 </li>      
                 <c:choose>
@@ -175,8 +175,8 @@
       <div class="col-lg-3">
         <div class="list-group">
         	<h1 class="my-4">메인 서비스</h1>
-          <a href="#" class="list-group-item">모든 강의</a>
-          <a href="#" class="list-group-item">수강중인 강의</a>
+          <a href="${cpath}/allLecture.do" class="list-group-item">모든 강의</a>
+          <a href="${cpath}/mainService.do" class="list-group-item">수강중인 강의</a>
         </div>
 
       </div>

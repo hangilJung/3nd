@@ -37,8 +37,7 @@ public class MemberController {
 	@RequestMapping("/myPage.do")
 	public String myPage() {		
 		return "myPage/myPage";
-	}
-	
+	}	
 	
 	//================= Start 메인 서비스 페이지 ===========================
 	//메인 서비스 페이지로 이동
