@@ -38,7 +38,7 @@ public class MyPageController {
 		model.addAttribute("paging", vo);
 		model.addAttribute("viewAll", dao.selectMyLecture(vo));	
 		
-		return "myPage/myLectureList";
+		return "lecture/myLectureList";
 	}
 	
 	@RequestMapping("/myLectureSubList.do")
@@ -61,7 +61,7 @@ public class MyPageController {
 		model.addAttribute("paging", vo);
 		model.addAttribute("viewAll", dao.selectMySubLecture(vo, myLectureNo));	
 		
-		return "myPage/myLectureSubList";
+		return "lecture/myLectureSubList";
 	}
 	
 	@RequestMapping("/concentration.do")
@@ -73,6 +73,6 @@ public class MyPageController {
 		MyLectureVO vo = (MyLectureVO)map.get("vo");
 		model.addAttribute("list", list);
 		model.addAttribute("vo",vo);
-		return "/myPage/concentration";
+		return "lecture/concentration";
 	}
 }

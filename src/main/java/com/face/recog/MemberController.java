@@ -120,6 +120,7 @@ public class MemberController {
 		String data = Integer.toString(result);
 		return data;	
 	}
-	//================= End 회원가입 ===========================
+	//================= End 회원가입 ===========================\
+	
 }
 

@@ -9,5 +9,8 @@
 <body>
  test111111111111111111111111111111111111111111111
  test12345dfassd
+ <a href="http://localhost:9000/makeDir?info=naknak">
+ 	얼굴등록하기
+ </a>
 </body>
 </html>

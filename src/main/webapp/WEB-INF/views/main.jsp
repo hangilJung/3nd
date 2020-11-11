@@ -112,7 +112,7 @@
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/concentration.do">전체 강의 목록</a>
+                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="${cpath}/myLectureList.do" >수강중인 강의</a>
