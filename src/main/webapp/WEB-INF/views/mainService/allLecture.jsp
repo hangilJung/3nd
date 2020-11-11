@@ -78,13 +78,16 @@
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/allLecture.do">모든 강의</a>
+                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="${cpath}/mainService.do">수강중인 강의</a>
                     </li>
                   </ul>
-                </li> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
+                </li>  
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
                 </li>
@@ -100,29 +103,13 @@
                     >마이 페이지</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">회원 정보 수정</a>
+                      <a class="nav-link" href="${cpath}/myPage.do">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">나의 학습</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">집중도 분석 열람</a>
+                      <a class="nav-link" href="logout.do">로그아웃</a>
                     </li>
                   </ul>
                 </li>      
-                <c:choose>
-                	<c:when test="${info != null }">
-                		<li class="nav-item">
-                  			<a href="${cpath}/logout.do" class="nav-link" >
-                  				<p>로그아웃</p>
-                  			</a>
-                		</li>
-                	</c:when>
-                	<c:otherwise>
-                		<li class="nav-item">
-                		</li>
-                	</c:otherwise>
-                </c:choose>
               </ul>
             </div>
           </div>
@@ -139,7 +126,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-6">
               <div class="banner_content text-center">
-                <h2>모든 강의</h2>
+                <h2>전체 강의 목록</h2>
               </div>
             </div>
           </div>

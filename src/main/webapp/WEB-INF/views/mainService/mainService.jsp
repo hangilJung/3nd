@@ -37,8 +37,7 @@
   <body>
     <!--================ Start Header Menu Area =================-->
     <header class="header_area">
-      <div class="main_menu">
-        
+      <div class="main_menu">   
 
         <nav class="navbar navbar-expand-lg navbar-light"  style="background:black;">
           <div class="container">
@@ -79,10 +78,10 @@
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/allLecture.do">모든 강의</a>
+                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/mainService.do">나의 강의</a>
+                      <a class="nav-link" href="${cpath}/mainService.do">수강중인 강의</a>
                     </li>
                   </ul>
                 </li>
@@ -104,7 +103,7 @@
                     >마이 페이지</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">회원 정보 수정</a>
+                      <a class="nav-link" href="${cpath}/myPage.do">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="logout.do">로그아웃</a>

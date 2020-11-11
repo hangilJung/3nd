@@ -65,19 +65,22 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"      
-                    style="color:white;"
+                    style="color:white"
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/allLecture.do">모든 강의</a>
+                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/mainService.do">나의 강의</a>
+                      <a class="nav-link" href="${cpath}/mainService.do">수강중인 강의</a>
                     </li>
                   </ul>
                 </li> 
+        		<li class="nav-item">
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
+                </li> 
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -87,21 +90,17 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    style="color:white;"
+                    style="color:white"
                     >마이 페이지</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="${cpath}/myPage.do">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">나의 학습</a>
+                      <a class="nav-link" href="logout.do">로그아웃</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">집중도 분석 열람</a>
-                    </li> 
                   </ul>
-                </li>      
-                
+                </li>  
               </ul>
             </div>
           </div>
