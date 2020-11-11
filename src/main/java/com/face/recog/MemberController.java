@@ -64,6 +64,17 @@ public class MemberController {
 	
 	//================= End 메인 서비스 페이지 ===========================	
 	
+	
+	//내가 볼 강의를 클릭하면 동영상이 나온다
+		@RequestMapping("/update.do")
+		public String update(MemberVO vo) {
+			int result = dao.memberUpdate(vo);
+			
+			return "myPage/myPage";
+		}	
+	
+	
+	
 	//================= Start 로그인 로그아웃 ===========================
 	//로그인 화면으로 이동
 	@RequestMapping("/loginForm.do")
@@ -129,9 +140,9 @@ public class MemberController {
 	
 	
 	// 마이 페이지(비밀번호,전화번호, 얼굴사진 수정)
-		@RequestMapping("/modify.do")
-		public String modify() {		
-			return "member/modify";
-		}
+	@RequestMapping("/modify.do")
+	public String modify() {		
+		return "myPage/modify";
+	}
 }
 

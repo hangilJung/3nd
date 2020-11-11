@@ -12,9 +12,10 @@ public class testController {
 	public String test() {		
 		return "test123";
 	}
-	
-	@RequestMapping("/test2.do")
-	public String test2() {		
+		
+	@RequestMapping("/result.do")
+	public String result() {		
 		return "test2";
 	}
+	
 }

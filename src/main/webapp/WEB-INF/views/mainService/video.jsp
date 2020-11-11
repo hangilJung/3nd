@@ -30,34 +30,36 @@
     </style>
 </head>
 <body>
-	<div style="margin: 20px 0px 0px 20px;">
-		<div id="videoDiv" style="float:left; border:5px solid yellow; width:600px; height:570px; ">
-			<video src="resources/hgVideo/testVideo.mp4" width="600px" height="100%" controls autoplay></video>
-		</div>
-		<div id="cam" style="border:5px solid red; float:left; overflow:auto; margin-left:20px;">
-			
-				<div style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">
-					<video src="" id="mycam" autoplay></video>				
-				</div>
-				
-			<div class="wrapper" style="background-color:#ffdd40; border:5px solid black; width:400px; ">
-			  <div class="bell" id="bell-1">
-			    <div class="anchor material-icons layer-1">notifications_active</div>
-			    <div class="anchor material-icons layer-2">notifications</div>
-			    <div class="anchor material-icons layer-3">notifications</div>
-			  </div>
-			</div>
-			
-					
-			<div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">				
-				<div >
-					<button onclick="lectureClose()" >강의종료</button>
-				</div>
-			</div>
-			
-			
-		</div>
-	</div>
+	<body>
+   <div style="margin: 20px 0px 0px 20px;">
+      <div id="videoDiv" style="float:left; border:5px solid yellow; width:600px; height:570px; ">
+         <video src="resources/hgVideo/testVideo.mp4" width="600px" height="100%" controls autoplay></video>
+      </div>
+      <div id="cam" style="border:5px solid red; float:left; overflow:auto; margin-left:20px;">
+         
+            <div style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">
+               <video src="" id="mycam" autoplay></video>            
+            </div>
+            
+         <div class="wrapper" style="background-color:#ffdd40; border:5px solid black; width:400px; ">
+           <div class="bell" id="bell-1">
+             <div class="anchor material-icons layer-1">notifications_active</div>
+             <div class="anchor material-icons layer-2">notifications</div>
+             <div class="anchor material-icons layer-3">notifications</div>
+           </div>
+         </div>
+         
+               
+         <div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">            
+            <div >
+               <button onclick="lectureClose()" >강의종료</button>
+            </div>
+         </div>
+         
+         
+      </div>
+   </div>
+</body>
 </body>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="resources/js/jquery-3.2.1.min.js"></script>

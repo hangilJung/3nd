@@ -132,16 +132,20 @@
     <!--================End Home Banner Area =================-->
 
     <!--================ Start About Area =================-->
-    <section class="about_area section_gap"  >    
+    <section class="about_area section_gap" style="padding-top : 60px;" >    
      <div class="container" style="text-align:center; " >
             <div class="modify">
             	<h1>MY PAGE</h1>
-       				<form action="${cpath}/modify.do" method="post">
+       				<form action="modify.do" method="post">
        					<br>
        					<br>
-       					<input type="password" placeholder="비밀번호를 입력하시요" >
-       					<input type="submit" value="확인">
-       			</form>
+       					<div>
+	       					<div style="margin-bottom : 20px;"><input type="password" id="pw" placeholder="비밀번호를 입력하시요" ></div>     						
+	       					<div style="margin-bottom : 20px;"><input type="text" id="phone" placeholder="전화번호" ></div>
+	       					<div style="margin-bottom : 20px;"><button type="button" onclick="location.href='http://localhost:9000/makeDir?info=${info.getEmail()}'">얼굴 사진 등록하기</button></div>
+	       					<div style="margin-bottom : 20px;"><input type="submit" value="확인"></div>      						
+       					</div>
+       				</form>
        		</div>
        	</div>
       
@@ -194,6 +198,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
-
+	
   </body>
 </html>
