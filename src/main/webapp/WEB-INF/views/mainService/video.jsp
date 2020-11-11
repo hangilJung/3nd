@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="resources/vendors/nice-select/css/nice-select.css" />
     <!-- main css -->
     <link rel="stylesheet" href="resources/css/style.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" media="all">
     <style type="text/css">
     	#videoDiv #cam{
     		float:left;
@@ -30,23 +31,31 @@
 </head>
 <body>
 	<div style="margin: 20px 0px 0px 20px;">
-		<div id="videoDiv" style="float:left; border:5px solid yellow; width:600px; height:600px; ">
-			<video src="resources/hgVideo/testVideo.mp4" width="600px" height="600px" controls autoplay></video>
+		<div id="videoDiv" style="float:left; border:5px solid yellow; width:600px; height:570px; ">
+			<video src="resources/hgVideo/testVideo.mp4" width="600px" height="100%" controls autoplay></video>
 		</div>
 		<div id="cam" style="border:5px solid red; float:left; overflow:auto; margin-left:20px;">
-			<div style="border:5px solid blue; overflow:auto">
+			
 				<div style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">
 					<video src="" id="mycam" autoplay></video>				
 				</div>
-				<div id="imgdi" style="border:5px solid black; width:400px; height:250px; margin-top:10px;">
-					<img alt="" id="img" src="resources/img/alarmGreen.png">
-				</div>			
+				
+			<div class="wrapper" style="background-color:#ffdd40; border:5px solid black; width:400px; ">
+			  <div class="bell" id="bell-1">
+			    <div class="anchor material-icons layer-1">notifications_active</div>
+			    <div class="anchor material-icons layer-2">notifications</div>
+			    <div class="anchor material-icons layer-3">notifications</div>
+			  </div>
 			</div>
-			<div style="border:5px solid orange; overflow:auto; margin-top:20px;">				
+			
+					
+			<div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">				
 				<div >
-					<button onclick="lectureClose()">강의종료</button>
+					<button onclick="lectureClose()" >강의종료</button>
 				</div>
 			</div>
+			
+			
 		</div>
 	</div>
 </body>
