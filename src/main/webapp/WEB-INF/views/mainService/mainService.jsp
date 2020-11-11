@@ -38,24 +38,7 @@
     <!--================ Start Header Menu Area =================-->
     <header class="header_area">
       <div class="main_menu">
-        <div class="search_input" id="search_input_box">
-          <div class="container">
-            <form class="d-flex justify-content-between" method="" action="">
-              <input
-                type="text"
-                class="form-control"
-                id="search_input"
-                placeholder="Search Here"
-              />
-              <button type="submit" class="btn"></button>
-              <span
-                class="ti-close"
-                id="close_search"
-                title="Close Search"
-              ></span>
-            </form>
-          </div>
-        </div>
+        
 
         <nav class="navbar navbar-expand-lg navbar-light"  style="background:black;">
           <div class="container">
@@ -102,7 +85,10 @@
                       <a class="nav-link" href="${cpath}/mainService.do">나의 강의</a>
                     </li>
                   </ul>
-                </li> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
                 </li>
@@ -121,26 +107,10 @@
                       <a class="nav-link" href="blog.html">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">나의 학습</a>
+                      <a class="nav-link" href="logout.do">로그아웃</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="single-blog.html">집중도 분석 열람</a>
-                    </li> 
                   </ul>
-                </li>      
-                <c:choose>
-                	<c:when test="${info != null }">
-                		<li class="nav-item">
-                  			<a href="${cpath}/logout.do" class="nav-link" >
-                  				<p>로그아웃</p>
-                  			</a>
-                		</li>
-                	</c:when>
-                	<c:otherwise>
-                		<li class="nav-item">
-                		</li>
-                	</c:otherwise>
-                </c:choose>
+                </li>   
               </ul>
             </div>
           </div>

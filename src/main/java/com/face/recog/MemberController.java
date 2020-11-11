@@ -114,6 +114,8 @@ public class MemberController {
 		return "redirect:/main.do";
 	}
 	
+	
+	
 	//회원가입 중 이메일의 중복을 확인해줌
 	@ResponseBody
 	@RequestMapping(value="doubleCheck.do", produces = "application/String; charset=utf-8")

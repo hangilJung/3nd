@@ -136,7 +136,7 @@
                     >마이 페이지</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="blog.html">회원 정보 수정</a>
+                      <a class="nav-link" href="${cpath}/myPage.do">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="logout.do">로그아웃</a>
