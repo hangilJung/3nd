@@ -127,5 +127,11 @@ public class MemberController {
 	}
 	//================= End 회원가입 ===========================\
 	
+	
+	// 마이 페이지(비밀번호,전화번호, 얼굴사진 수정)
+		@RequestMapping("/modify.do")
+		public String modify() {		
+			return "member/modify";
+		}
 }
 
