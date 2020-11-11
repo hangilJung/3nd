@@ -93,12 +93,15 @@
 	    }
 	    
 	    //집중도 떨어질때 이미지 변경해줄 예정
+	    
 	    var img = document.getElementById('img');
 	    var imgdi = document.getElementById('imgdi');
 	    
 	    imgdi.addEventListener('mouseover', function(){
 	    	img.setAttribute('src','resources/img/alarmYellow.png')
 	    })
+	    
+	    
 	    
 	   
 	    </script>

@@ -30,9 +30,23 @@
 			list-style-type: none;
 			float:left;
 			margin-left:10px;			
-		}	
-		#id:hover{
+		}
 			
+		#login:hover{
+			background-color : #fdc632;
+			border-color : #fdc632;
+			color:#002347;
+		}
+		#join:hover{
+			color : #fdc632;
+		}
+		#login{
+			font-weight : bold;
+			color : #fdc632;
+		}
+		#join{
+			font-weight: bold;
+			color:#002347
 		}
 	</style>
   </head>
@@ -165,8 +179,8 @@
                 <c:choose>
                 	<c:when test="${info == null }">
                 		<div>
-                 	 		<a id="login" href="${cpath}/loginForm.do" class="primary-btn2 mb-3 mb-sm-0" style="color:white;">로그인</a>
-                  			<a href="${cpath}/sign.do" class="primary-btn ml-sm-3 ml-0">회원가입</a>
+                 	 		<a id="login" href="${cpath}/loginForm.do" class="primary-btn2 mb-3 mb-sm-0" ">로그인</a>
+                  			<a id="join" href="${cpath}/sign.do" class="primary-btn ml-sm-3 ml-0">회원가입</a>
                 		</div>
                 	</c:when>
                 
