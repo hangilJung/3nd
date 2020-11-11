@@ -112,12 +112,15 @@
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/allLecture.do">모든 강의</a>
+                      <a class="nav-link" href="${cpath}/concentration.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/mainService.do" >수강중인 강의</a>
+                      <a class="nav-link" href="${cpath}/myLectureList.do" >수강중인 강의</a>
                     </li>
                   </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="timerCalendar.do">집중도 분석</a>
                 </li> 
                 <li class="nav-item">
                   <a class="nav-link" href="timerCalendar.do">자습 타이머</a>
@@ -136,23 +139,10 @@
                       <a class="nav-link" href="blog.html">회원 정보 수정</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="myLectureList.do">집중도 분석 열람</a>
+                      <a class="nav-link" href="logout.do">로그아웃</a>
                     </li>
                   </ul>
-                </li>      
-                <c:choose>
-                	<c:when test="${info != null }">
-                		<li class="nav-item">
-                  			<a href="${cpath}/logout.do" class="nav-link" >
-                  				<p>로그아웃</p>
-                  			</a>
-                		</li>
-                	</c:when>
-                	<c:otherwise>
-                		<li class="nav-item">
-                		</li>
-                	</c:otherwise>
-                </c:choose>
+                </li>  
               </ul>
             </div>
           </div>
