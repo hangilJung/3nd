@@ -26,6 +26,8 @@ public class MemberController {
 	@Autowired
 	private MemberMyBatisDAO dao;
 	
+	
+	//================= Start 페이지 to 페이지 이동 ===========================
 	//메인 페이지로 이동
 	@RequestMapping("/main.do")
 	public String main() {		
@@ -38,6 +40,8 @@ public class MemberController {
 	public String myPage() {		
 		return "myPage/myPage";
 	}	
+	
+	//================= End 페이지 to 페이지 이동 ===========================
 	
 	//================= Start 메인 서비스 페이지 ===========================
 	//메인 서비스 페이지로 이동
@@ -58,8 +62,7 @@ public class MemberController {
 		return "mainService/video";
 	}	
 	
-	//================= End 메인 서비스 페이지 ===========================
-	
+	//================= End 메인 서비스 페이지 ===========================	
 	
 	//================= Start 로그인 로그아웃 ===========================
 	//로그인 화면으로 이동

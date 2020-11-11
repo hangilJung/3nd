@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
- test111111111111111111111111111111111111111111111
- test12345dfassd
- <a href="http://localhost:9000/makeDir?info=a">
- 	얼굴등록하기
- </a>
+	성공
 </body>
 </html>
