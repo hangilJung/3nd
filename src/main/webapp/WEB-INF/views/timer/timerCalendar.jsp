@@ -11,7 +11,7 @@
 		SelfStudyVO vo = list.get(i);
 		
 		String d = vo.getStudydate();
-		int st = vo.getTime();
+		int st = vo.getstudyTime();
 		
 		date += d + ",";
 		studyTime += st + ",";
@@ -82,6 +82,7 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	font-size: 20px;
 }
 
 .input-data {
@@ -183,7 +184,7 @@
 		padding: .8em .5em 0 0;
 		font-family: inherit;
 		border: 0;
-		border-bottom: 1px dashed #ddaf35;;
+		/* border-bottom: 1px dashed #ddaf35; */
 		border-radius: 0;
 		outline-style: none;
 		-webkit-appearance: none;
@@ -229,8 +230,37 @@
 		color: #ffffff;
 	}
 }
-</style>
 
+ 	.box{
+		width: 200px;
+		height: 200px;
+		text-align: center;
+	}
+	.time{
+  	 	display:inline-block;
+   		border:1px solid #EFEFEF;
+   		background:#F8F8F8;	
+	}	
+	.timerBox{
+		width: 200px;
+		outline: 2px solid black;
+	}
+	.timerBox .time{
+		font-size: 30pt;
+		color: #4C4C4C;
+		font-family: sans-serif;
+	}
+	.btnBox{
+		margin: 20px auto;
+	}
+	.btnBox .fa{
+		margin: 0px 5px;
+		font-size: 30pt;
+		color: #FAED7D;
+		cursor: pointer;
+	}
+</style>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -244,6 +274,20 @@
 					<div class="selfStudy-title">자습시간</div>
 					<div class="input-wrap">
 						<input type="text" id="input-box" class="input-box">	<!-- 자습시간 -->
+					</div>
+					<div id="box">
+						<div id='timerBox' class="timerBox">
+							<div id="time" class="time">00:00:00</div>
+								<div>
+									<img alt="" src="resources/img/on.jpeg" width="30">
+									<img alt="" src="resources/img/off.jpeg" width="30">
+								</div>
+						</div>
+						<div class="btnBox">
+							<i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
+							<i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
+							<i id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -302,7 +346,6 @@
 	var y = new Array();	//자습 날짜의 년
 	var m = new Array();	//자습 날짜의 월
 	var d = new Array();	//자습 날짜의 일
-	var studyTime = "<%=studyTime%>".split(",");	//서버에서 받아온 자습 시간
 	
 	for(var i = 0; i<date.length; i++){	//자습 날짜의 년 월 일을 분리하여 저장
 		y[i] = date[i].substr(0,4);	/* 2020 */
@@ -355,7 +398,6 @@
 	
 	//왼쪽에 요일, 일 표시
 	function showMain() {
-		console.log(mainTodayDay);
 		mainTodayDay.innerHTML = dayList[today.getDay()];
 		mainTodayDate.innerHTML = today.getDate();
 	}
@@ -383,7 +425,7 @@
 			if(y[i]==first.getFullYear()){
 				if(m[i]==first.getMonth()+1){
 					if(d[i] == idNum){
-						document.getElementById('input-box').value = studyTime[i];							
+						document.getElementById('input-box').value = studyTime[i];	
 					}
 				}
 			}
@@ -392,7 +434,8 @@
 		if(todayDate.getFullYear()==first.getFullYear()){	//클릭한 날짜가 오늘일 때
 			if(todayDate.getMonth()+1==first.getMonth()+1){
 				if(todayDate.getDate()==idNum){					
-					document.getElementById('input-box').value = "";	//자습시간 지움						
+					
+					
 				}
 			}
 		}	
@@ -429,8 +472,6 @@
 
 	//이전달
 	function prev() {
-		console.log(mainTodayDay);
-		
 		document.getElementById('input-box').value = "";	//자습시간 지움
 		if (pageFirst.getMonth() === 1) {	//페이지의 날짜가 1월일때 이전 년으로 이동
 			pageFirst = new Date(first.getFullYear() - 1, 12, 1);
@@ -458,8 +499,6 @@
 
 	//다음달
 	function next() {
-		console.log(mainTodayDay);
-		
 		document.getElementById('input-box').value = "";	//자습시간 지움
 		if (pageFirst.getMonth() === 12) {	//페이지의 날짜가 12월일때 다음 년으로 이동
 			pageFirst = new Date(first.getFullYear() + 1, 1, 1);
@@ -484,6 +523,90 @@
 		isIsNot();	//자습날짜 데이터가 있으면 클래스명 is 부여
 		clickAdd();	//모든 td에 click 이벤트 add
 	}
+	
+	
+	
+	
+	
+	
+	///////////////타이머영역
+	var time = 0;
+	var starFlag = true;
+	$(document).ready(function(){
+	  buttonEvt();
+	});
+
+	function init(){
+	  document.getElementById("time").innerHTML = "00:00:00";
+	}
+
+	function buttonEvt(){
+	  var hour = 0;
+	  var min = 0;
+	  var sec = 0;
+	  var timer;
+
+	  // start btn
+	  $("#startbtn").click(function(){
+
+	    if(starFlag){
+	      $(".fa").css("color","#FAED7D")
+	      this.style.color = "#4C4C4C";
+	      starFlag = false;
+
+	      if(time == 0){
+	        init();
+	      }
+
+	      timer = setInterval(function(){
+	        time++;
+
+	        min = Math.floor(time/60);
+	        hour = Math.floor(min/60);
+	        sec = time%60;
+	        min = min%60;
+
+	        var th = hour;
+	        var tm = min;
+	        var ts = sec;
+	        if(th<10){
+	        th = "0" + hour;
+	        }
+	        if(tm < 10){
+	        tm = "0" + min;
+	        }
+	        if(ts < 10){
+	        ts = "0" + sec;
+	        }
+
+	        document.getElementById("time").innerHTML = th + ":" + tm + ":" + ts;
+
+	      }, 1000);
+	    }
+	  });
+
+	  // pause btn
+	  $("#pausebtn").click(function(){
+	    if(time != 0){
+	      $(".fa").css("color","#FAED7D")
+	      this.style.color = "#4C4C4C";
+	      clearInterval(timer);
+	      starFlag = true;
+	    }
+	  });
+
+	  // stop btn
+	  $("#stopbtn").click(function(){
+	    if(time != 0){
+	      $(".fa").css("color","#FAED7D")
+	      this.style.color = "#4C4C4C";
+	      clearInterval(timer);
+	      starFlag = true;
+	      time = 0;
+	      init();
+	    }
+	  });
+	}	
 	
 </script>
 </html>

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.face.model.LectureDAO;
 import com.face.model.MemberMyBatisDAO;
 import com.face.model.MemberVO;
 
@@ -26,6 +27,8 @@ public class MemberController {
 	@Autowired
 	private MemberMyBatisDAO dao;
 	
+	@Autowired
+	private LectureDAO ldao;
 	
 	//================= Start 페이지 to 페이지 이동 ===========================
 	//메인 페이지로 이동
@@ -52,7 +55,8 @@ public class MemberController {
 	
 	//메인 서비스 메뉴바에서 모든 강의로 이동
 	@RequestMapping("/allLecture.do")
-	public String allLecture() {		
+	public String allLecture(Model model) {	
+		model.addAttribute("viewAll", ldao.selectLecture());
 		return "mainService/allLecture";
 	}
 	

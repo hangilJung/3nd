@@ -20,6 +20,6 @@ public class TimerController {
 			/*,@RequestParam(value="id")String id*/){
 		List<SelfStudyVO> list = dao.selectSelfStudy("suin");
 		model.addAttribute("list",list);
-		return "/timer/timerCalendar";
+		return "timer/timerCalendar";
 	}
 }

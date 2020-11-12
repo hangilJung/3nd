@@ -1,5 +1,5 @@
 <%@page import="com.face.model.ConcentrationVO"%>
-<%@page import="com.face.model.MyLectureVO"%>
+<%@page import="com.face.model.LectureVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -35,30 +35,31 @@ for(int i=0; i<list.size(); i++){
 
 %>
 <h3>집중도분석화면</h3>
-<%-- ${list }
-${vo } --%>
 
-	<video width="1000" height="500" controls
-		id="video1">
+	<video width="1000" height="500" id="video1" controls>
 		<source src="${ROOT}${vo.path}" type="video/mp4">
 		Your browser does not support the video tag.
 	</video>
-<!-- 	<br> 이동할 시간 :
-	<input type="text" id="t" onkeyup="enterkey();">
-	<br> -->
-
 	<div id="chart_div"></div>
-
-	<%-- 
-	 <img src="${pageContext.request.contextPath}/resources/img.png">
-     <img src="<spring:url value='/resources/img.png'/>"> 
---%>
-
 </body>
 
 <script type="text/javascript">
-	
 	var video = document.getElementById('video1');
+ 	video.muted = true;
+	//Starting in Chrome 64, autoplay will be allowed 
+	//when either the media won’t play sound, or the user has indicated an interest in the media.
+	
+ 	window.onload = function(){
+		if(confirm('이전 시청내역이 있습니다. 이어서 재생하시겠습니까?') == true){
+			console.log('확인누름...');
+			time(360);
+			video.play(); 
+		
+		}else{
+			console.log('취소누름...');
+			video.play();
+		}
+	}
 
 	function enterkey() {
 		if (window.event.keyCode == 13) {
@@ -66,9 +67,7 @@ ${vo } --%>
 		}
 	}
 
-	function time() {
-		video = document.getElementById("video1");
-		var t = $('#t').val();
+	function time(t) {
 		video.currentTime = t;
 	};
 

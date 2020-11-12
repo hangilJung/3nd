@@ -3,22 +3,22 @@ package com.face.model;
 public class SelfStudyVO {
 	String id;
 	String studydate;
-	int time;
+	int studyTime;
 	
 	public SelfStudyVO() {
 		super();
 	}
 	
-	public SelfStudyVO(String id, String studydate, int time) {
+	public SelfStudyVO(String id, String studydate, int studyTime) {
 		super();
 		this.id = id;
 		this.studydate = studydate;
-		this.time = time;
+		this.studyTime = studyTime;
 	}
 	
 	@Override
 	public String toString() {
-		return "SelfStudyVO [id=" + id + ", studydate=" + studydate + ", time=" + time + "]";
+		return "SelfStudyVO [id=" + id + ", studydate=" + studydate + ", studyTime=" + studyTime + "]";
 	}
 	
 	public String getId() {
@@ -33,10 +33,10 @@ public class SelfStudyVO {
 	public void setStudydate(String studydate) {
 		this.studydate = studydate;
 	}
-	public int getTime() {
-		return time;
+	public int getstudyTime() {
+		return studyTime;
 	}
-	public void setTime(int time) {
-		this.time = time;
+	public void setstudyTime(int studyTime) {
+		this.studyTime = studyTime;
 	}
 }

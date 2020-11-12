@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.face.mybatis.lectureMapper">
+    <select id="selectLecture" resultType="com.face.model.LectureVO">
+        select * from lecture
+    </select>
+    
+    <select id="selectSubLecture" resultType="com.face.model.LectureVO">
+        select l.lecNo, l.subject, l.lecName, l.lecIntro, l.allEpi, l.thumbPath, l.teacher, l.targets, l.book, l.levels, s.episode, s.epiIntro, s.path
+			from lecture l, subLecture s 
+			where l.lecNo = s.lecNo and l.lecNo=#{lecNo}
+    </select>
+    
+    <insert id="insertMyLecture" parameterType="map">
+		insert into myLecture values(myLec_seq.nextval, #{lecNo}, #{id}, #{episode}, null)
+    </insert>
+    
+    <delete id="deleteMyLecture">
+        delete myLecture where id=#{id} and lecNo=#{lecNo}
+    </delete>
+    
+    <select id="selectMyLecture" resultType="com.face.model.LectureVO">
+        select * from lecture where lecNo in(select lecNo from mylecture where id=#{id})
+    </select>
+    
+    <select id="selectMySubLecture" parameterType="map" resultType="com.face.model.MyLectureVO">
+ 		select m.myLecNo, m.curTime, m.id, a.*
+	 		from myLecture m, (select l.lecNo, l.subject, l.lecName, l.lecIntro, l.allEpi, l.thumbPath, l.teacher, l.targets, l.book, l.levels, s.episode, s.epiIntro, s.path 
+	   							 from lecture l, subLecture s 
+	   							 where l.lecNo = s.lecNo and l.lecNo=#{lecNo}) a
+			where m.lecNo = a.lecNo and m.episode = a.episode and m.id = #{id}
+    </select>
+    
+    <select id="selectConcentration" resultType="com.face.model.ConcentrationVO">
+    	select time, score from concentration where myLecNo=#{myLecNo} order by time
+	</select>
+
+	<select id="selectMySubLecture2" resultType="com.face.model.MyLectureVO">
+   		select a.lecName, a.episode, a.epiIntro, a.path, b.curTime
+        	from (select s.lecNo, l.lecName, s.episode, s.epiIntro, s.path 
+                	from lecture l, subLecture s 
+                	where l.lecNo = s.lecNo) a,
+             	(select lecNo, episode, curTime 
+                	from myLecture 
+                	where myLecno=#{myLecNo}) b
+        	where a.lecNo = b.lecNo and a.episode = b.episode
+	</select>    
+</mapper>

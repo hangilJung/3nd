@@ -64,7 +64,7 @@
             >
               <ul class="nav navbar-nav menu_nav ml-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="${cpath}/main.do">홈</a>
+                  <a class="nav-link" href="main.do">홈</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -78,10 +78,10 @@
                     >메인 서비스</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
+                      <a class="nav-link" href="allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/mainService.do">수강중인 강의</a>
+                      <a class="nav-link" href="myLectureList.do">수강중인 강의</a>
                     </li>
                   </ul>
                 </li>
@@ -89,7 +89,7 @@
                   <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
                 </li>  
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -143,8 +143,8 @@
       <div class="col-lg-3">
         <div class="list-group">
         	<h1 class="my-4">메인 서비스</h1>
-          <a href="${cpath}/allLecture.do" class="list-group-item">모든 강의</a>
-          <a href="${cpath}/mainService.do" class="list-group-item">수강중인 강의</a>
+          <a href="allLecture.do" class="list-group-item">모든 강의</a>
+          <a href="myLectureList.do" class="list-group-item">수강중인 강의</a>
         </div>
 
       </div>
@@ -158,78 +158,26 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4">Page Heading
+      <h1 class="my-4">모든 강의
         <small>Secondary Text</small>
       </h1>
 
-      <!-- Project One -->
-      <div class="row">
-        <div class="col-md-7">
-          <a onclick="videoOpen()">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project One</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
+	  <c:forEach items="${viewAll }" var="list" varStatus="status">
+	      <div class="row">
+	        <div class="col-md-7">
+	          <a onclick="videoOpen()">
+	            <img class="img-fluid rounded mb-3 mb-md-0" src="${cpath}${list.thumbPath}" alt="">
+	          </a>
+	        </div>
+	        <div class="col-md-5">
+	          <h3>${list.subject } ${list.lecName }</h3>
+	          <p>${list.lecIntro}</p>
+	          <a class="btn btn-primary" href="lectureSubList.do?lecNo=${list.lecNo}">썸네일클릭시비디오보기함수가있어서만든강의세부사항버튼</a>
+	        </div>
+	      </div>
+      </c:forEach>
 
-      <hr>
-
-      <!-- Project Two -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project Two</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Project Three -->
-      <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project Three</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
-
-      <!-- Project Four -->
-      <div class="row">
-
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
-          </a>
-        </div>
-        <div class="col-md-5">
-          <h3>Project Four</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-          <a class="btn btn-primary" href="#">View Project</a>
-        </div>
-      </div>
-      <!-- /.row -->
-
-      <hr>
+	 <hr>
 
       <!-- Pagination -->
       <ul class="pagination justify-content-center">
