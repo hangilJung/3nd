@@ -91,7 +91,7 @@
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    >메인 서비스</a>
+                    >강 의</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="allLecture.do">전체 강의 목록</a>

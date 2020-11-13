@@ -78,7 +78,7 @@
                     aria-haspopup="true"
                     aria-expanded="false"      
                     style="color:white;"
-                    >메인 서비스</a>
+                    >강 의</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a class="nav-link" href="allLecture.do">전체 강의 목록</a>
@@ -145,7 +145,7 @@
 
       <div class="col-lg-3">
         <div class="list-group">
-        	<h1 class="my-4">메인 서비스</h1>
+        	<h1 class="my-4">강 의</h1>
           <a href="allLecture.do" class="list-group-item">모든 강의</a>
           <a href="myLectureList.do" class="list-group-item">수강중인 강의</a>
         </div>
