@@ -31,7 +31,33 @@
 			list-style-type: none;
 			float:left;
 			margin-left:10px;			
-		}	
+		}
+				.lect_top{
+			padding: 30px 0 0 30px;
+		}
+		.lect_bottom{
+			padding: 0 30px 0 30px;
+		}
+		.info_img{
+			padding: 20px 0 0 50px;
+			text-align: center;
+		}
+		.info_area{
+			width:60%;
+			padding: 0 50px 50px 100px;
+		}
+		.list_info{
+			padding:50px 50px 50px 0;
+		}
+		.info_table td {
+    	height: 36px;
+    	border-top: 2px solid #e8e8e8;
+		}
+		button{
+			border-color : transparent;
+			background-color: transparent;
+		}
+			
 	</style>
   </head>
 
@@ -133,55 +159,78 @@
       </div>
     </section>
     <!--================End Home Banner Area =================-->
-	<table style="text-align: center; width: 100%" border="1">
-		<tr>
-			<td rowspan="2">
-				<img src="${cpath}${viewAll.get(0).thumbPath}">
-			</td>
-			<td>강의이름</td>
-			<td>강의소개</td>
-			<td>전체회차</td>
-			<td>선생님</td>
-			<td>수강대상</td>
-			<td>교재</td>
-			<td>강의수준</td>
-			<td rowspan="2">
-				<button onclick="btnClick()">수강취소</button>
-			</td>
-		</tr>
-		<tr>
-			<td>${viewAll.get(0).lecName}</td>
-			<td>${viewAll.get(0).lecIntro}</td>
-			<td>${viewAll.get(0).allEpi}</td>
-			<td>${viewAll.get(0).teacher}</td>
-			<td>${viewAll.get(0).targets}</td>
-			<td>${viewAll.get(0).book}</td>
-			<td>${viewAll.get(0).levels}</td>		
-		</tr>
-	</table>	
-	<br><br><br><br><br>
-	<table style="text-align: center; width: 100%" border="1">
-		<tr>	
-			<td>회차</td>
-			<td>회차소개</td>
-			<td>강의보기</td>
-			<td>집중도분석</td>
-		</tr>
-		<c:forEach items="${viewAll }" var="list" varStatus="status">
-			<tr>
-				<td>${list.episode }</td>
-				<td>${list.epiIntro }</td>
-				<td><button type="button" onclick="window.open('${cpath}/video.do?myLecNo=${list.myLecNo}','Lecture','width=1500, height=900');" >강의보기</button></td>
-					
-				<td>
-					<c:if test="${list.curTime > 0}">
-						<button onclick="location.href = 'concentration.do?myLecNo=${list.myLecNo}'">집중도분석</button>
-					</c:if>	
-				</td>
-				<!-- onclick="location.href='video.do?myLecNo=${list.myLecNo}'" -->
+    <div class="lect_top">
+
+		<div class="info_img" style=" float:left; width:40%;">
+			<img src="${cpath}${viewAll.get(0).thumbPath}">
+		</div>
+    		
+		<div class="info_area" style="float:right; text-align:center;">
+			
+			<table class="info_table " style="float:right font-size: 16px; line-height: 3;">
+				<colgroup>
+					<col style="width:18%">
+					<col style="width:26%">
+							<col style="width:25%">
+							<col style="width:">
+						</colgroup>
+						<tbody>
+						<tr>
+							<th><span>강의이름</span></th>
+							<td colspan="3">
+								${viewAll.get(0).lecName}
+							</td>
+						</tr>
+						<tr>
+							<th><span>강의소개</span></th>
+							<td colspan="3">
+								${viewAll.get(0).lecIntro}
+							</td>
+						</tr>
+						<tr>
+							<th><span>선생님</span></th>
+							<td>${viewAll.get(0).teacher}</td>
+							<th><span>교재</span></th>
+							<td>${viewAll.get(0).book}</td>
+						</tr>
+						<tr>
+							<th><span>수강대상</span></th>
+							<td>${viewAll.get(0).targets}</td>
+							<th><span>강좌수준</span></th>
+							<td>${viewAll.get(0).levels}</td>
+						</tr>
+						<tr>
+							<td colspan="4" style="text-align:center;">
+								<button onclick="btnClick()">수강취소</button>
+							</td>
+						</tr>
+						</tbody></table>
+				</div>
+    </div>
+	<div class="lect_bottom">	
+		<table style="text-align: center; width: 100%" border="1">
+			<tr>	
+				<td>회차</td>
+				<td>회차소개</td>
+				<td>강의보기</td>
+				<td>집중도분석</td>
 			</tr>
-		</c:forEach>
-	</table>	
+			<c:forEach items="${viewAll }" var="list" varStatus="status">
+				<tr>
+					<td>${list.episode }</td>
+					<td>${list.epiIntro }</td>
+					<td><button type="button" onclick="window.open('${cpath}/video.do?myLecNo=${list.myLecNo}','Lecture','width=1500, height=900');" >강의보기</button></td>
+						
+					<td>
+						<c:if test="${list.curTime > 0}">
+							<button onclick="location.href = 'concentration.do?myLecNo=${list.myLecNo}'">집중도분석</button>
+						</c:if>	
+					</td>
+					<!-- onclick="location.href='video.do?myLecNo=${list.myLecNo}'" -->
+				</tr>
+			</c:forEach>
+		</table>	
+	</div>
 
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
