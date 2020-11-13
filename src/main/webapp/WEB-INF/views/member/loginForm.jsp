@@ -56,7 +56,7 @@
        		<!-- body -->
         	<div class="mid">
         		<div class="di_mar">
-        			<input type="text" class="text-wh" name="email" placeholder="아이디"/>        			
+        			<input type="text" class="text-wh" name="id" placeholder="아이디"/>        			
         		</div>
         		<div class="di_mar">
         			<input type="password" class="text-wh" name="pw" placeholder="비밀번호"/>

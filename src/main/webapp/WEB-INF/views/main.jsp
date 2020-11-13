@@ -158,7 +158,7 @@
                 
                 	<c:otherwise>
                 		<div>
-                  			<p>:) ${info.getEmail()}님 환영합니다.</p>
+                  			<p>:) ${info.getId()}님 환영합니다.</p>
                 		</div>
                 	</c:otherwise>
                 </c:choose>

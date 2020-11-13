@@ -1,56 +1,57 @@
 package com.face.model;
 
 public class MemberVO {
-	private String email;
+	private String id;
 	private String pw;
 	private String phone;
-	private String facepath;
-		
+	
+	
 	public MemberVO() {
+		super();
+	}
+		
+	
+	public MemberVO(String id) {
+		this.id = id;
 	}
 	
-	public MemberVO(String email, String pw) {
-		super();
-		this.email = email;
+	public MemberVO(String id, String pw) {
+		this.id = id;
 		this.pw = pw;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPw() {
-		return pw;
-	}
-
-	public void setPw(String pw) {
+	
+	public MemberVO(String id, String pw, String phone) {
+		this.id = id;
 		this.pw = pw;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public String getFacepath() {
-		return facepath;
-	}
-
-	public void setFacepath(String facepath) {
-		this.facepath = facepath;
-	}
-
+	
 	@Override
 	public String toString() {
-		return "MemberVO [email=" + email + ", pw=" + pw + ", phone=" + phone + ", facepath=" + facepath + "]";
+		return "MemberVO [id=" + id + ", pw=" + pw + ", phone=" + phone + "]";
 	}
+	public String getId() {
+		return id;
+	}	
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	
+		
 	
 	
 }

@@ -6,7 +6,7 @@
 <mapper namespace="com.face.mybatis.memberMapper">
 	<!--========================= 회원가입=================================== -->
 	<insert id="memberInsert" parameterType="MemberVO">
-	    insert into student values(num_seq.nextval, #{id}, #{pw}, #{phone},'Unregistered')
+	    insert into student values(#{id}, #{pw}, #{phone})
 	</insert>
 	
 	<!--========================= 로그인=================================== -->
@@ -16,7 +16,7 @@
 	
 	<!--========================= 이메일 중복 확인=================================== -->	
 	<select id="doubleCheck" resultType="int">
-		select count(*) from student where email = #{email}  
+		select count(*) from student where id = #{id}  
 	</select>
 	
 	<!--========================= 이메일 중복 확인=================================== -->

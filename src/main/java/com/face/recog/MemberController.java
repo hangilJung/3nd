@@ -135,8 +135,8 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value="doubleCheck.do", produces = "application/String; charset=utf-8")
 	//적어주기만 하면 무조건 session에 넘어간다 (의존성)
-	public String idCheck(String email, HttpSession session) {
-		int result = dao.doubleCheck(email);
+	public String idCheck(String id, HttpSession session) {
+		int result = dao.doubleCheck(id);
 		String data = Integer.toString(result);
 		return data;	
 	}

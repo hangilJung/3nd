@@ -105,9 +105,9 @@
     <script type="text/javascript">
    	
     	function formCh(){
-    		if(document.myForm.email.value==''){
+    		if(document.myForm.id.value==''){
     			alert("아이디를 입력하세요")
-    			document.myForm.email.focus();
+    			document.myForm.id.focus();
     		}else if(document.myForm.pw.value==''){
     			alert("비밀번호를 입력하세요")
     			document.myForm.pw.focus();
@@ -129,10 +129,10 @@
     			dataType : "json",
     			data : {"id" : $("#id").val()},
     			success : function(data){
-    				var email = document.myForm.email
+    				var id = document.myForm.id
     				if(data == 1){
     					alert("중복된 아이디 입니다.");  
-    					email.value =null;
+    					id.value =null;
     				}else if(data == 0){
     					alert("사용가능한 아이디입니다.");
     					document.myForm.pw.focus()
