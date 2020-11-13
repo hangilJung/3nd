@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="cpath" value="${pageContext.request.contextPath }" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,7 @@
 			<tr>
 				<td>${list.episode }</td>
 				<td>${list.epiIntro }</td>
-				<td><button type="button" id="videoClick">강의보기</button></td>
+				<td><button type="button" onclick="window.open('${cpath}/video.do?myLecNo=${list.myLecNo}','Lecture','width=1500, height=900');" >강의보기</button></td>
 					
 				<td>
 					<c:if test="${list.curTime > 0}">
@@ -56,9 +57,6 @@
 				</td>
 				<!-- onclick="location.href='video.do?myLecNo=${list.myLecNo}'" -->
 			</tr>
-			<script>
-				var myLecNo = ${list.myLecNo};
-			</script>
 		</c:forEach>
 	</table>	
 </body>
@@ -87,7 +85,7 @@
 		
 		
 		
-		
+		/*
 		var send = {'myLecNo': myLecNo};
 		
 		$('#videoClick').click(function(){
@@ -100,10 +98,11 @@
        					 return false;
 		                },
 		             error : function(){
-		                  alert('접속실패')
+		                 alert('접속실패')
 		                }
 		            });
 		});
+		*/
 		
 		// window.open('${cpath}/video.do?myLecNo=${list.myLecNo}', 'Lecture','width=1500, height=900'); 
        //  return false;

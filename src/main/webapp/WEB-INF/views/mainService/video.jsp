@@ -37,8 +37,8 @@
       </div>
       <div id="cam" style="border:5px solid red; float:left; overflow:auto; margin-left:20px;">
          
-            <div id="mycam" style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">   
-            <img src="http://118.40.119.27:5000/video_fa">                
+            <div style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">   
+            	<img id="mycam" src="">                
             </div>
             
          <div class="wrapper" style="background-color:#ffdd40; border:5px solid black; width:400px; ">
@@ -51,10 +51,13 @@
          
          <div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">            
             <div >
-               <button onclick="lectureClose()" >강의종료</button>
+             	<button type="button" id="videoOn" >집중도 분석 ${myLecNo} </button>
+               	<button onclick="lectureClose()" >강의종료</button>
             </div>
          </div>
-         
+         <script type="text/javascript">
+         	var myLecNo = ${myLecNo};
+         </script>
          
       </div>
    </div>
@@ -84,10 +87,28 @@
 		window.resizeTo(1480,900); // 웹페이지의 크기를 가로 1280 , 세로 800 으로 고정(확장 및 축소)
 		window.scrollTo(0,250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정
 		}
-		
-		
 	
-	    	    
+		/*
+		var send = {'myLecNo': myLecNo};
+		
+		$('#videoOn').click(function(){
+			$.ajax({ url : "http://localhost:5000/test",
+		             type : "POST",
+		             data: send,
+		             success : function(){
+		            	 alert('전송성공');
+		            	 //$("#mycam").attr("src",'http://118.40.119.27:5000/video_fa');
+		                },
+		             error : function(){
+		                 alert('접속실패');
+		                }
+		            });
+		});
+		
+	    	   */
+	     $('#videoOn').click(function(){	   
+	    	 $("#mycam").attr("src",'http://118.40.119.27:5000/video_fa');
+	     });
 	    
 	    //강의 창을 닫음
 	    function lectureClose(){
