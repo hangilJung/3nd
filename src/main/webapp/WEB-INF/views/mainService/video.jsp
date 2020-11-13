@@ -37,8 +37,8 @@
       </div>
       <div id="cam" style="border:5px solid red; float:left; overflow:auto; margin-left:20px;">
          
-            <div style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">
-               <video src="" id="mycam" autoplay></video>            
+            <div id="mycam" style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">   
+            <img src="http://118.40.119.27:5000/video_fa">                
             </div>
             
          <div class="wrapper" style="background-color:#ffdd40; border:5px solid black; width:400px; ">
@@ -49,7 +49,6 @@
            </div>
          </div>
          
-               
          <div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">            
             <div >
                <button onclick="lectureClose()" >강의종료</button>
@@ -84,33 +83,17 @@
 		window.moveTo(100,100); // 웹 페이지의 창 위치를 0,0 (왼쪽 최상단) 으로 고정
 		window.resizeTo(1480,900); // 웹페이지의 크기를 가로 1280 , 세로 800 으로 고정(확장 및 축소)
 		window.scrollTo(0,250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정
+		}
 		
-		
-		} 
 		
 	
-	    // 캠이 보여야하는데 안보임
-	    var video = document.getElementById('myvideo');
-	    navigator.webkitGetUserMedia("video", success);
-	   
-	    function success(stream){
-	      video.src = window.webkitURL.createObjectURL(stream);
-	    }
-	    
+	    	    
 	    
 	    //강의 창을 닫음
 	    function lectureClose(){
 	    	self.close();
 	    }
 	    
-	    //집중도 떨어질때 이미지 변경해줄 예정
-	    
-	    var img = document.getElementById('img');
-	    var imgdi = document.getElementById('imgdi');
-	    
-	    imgdi.addEventListener('mouseover', function(){
-	    	img.setAttribute('src','resources/img/alarmYellow.png')
-	    })
 	    
 	    
 	    
@@ -118,5 +101,5 @@
 	    </script>
 		
 	</script>	
-		
+	
 </html>

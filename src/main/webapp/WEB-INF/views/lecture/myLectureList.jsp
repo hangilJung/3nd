@@ -168,7 +168,7 @@
 	  <c:forEach items="${viewAll }" var="list" varStatus="status">
 	      <div class="row">
 	        <div class="col-md-7">
-	          <a onclick="videoOpen()">
+	          <a onclick='href="myLectureSubList.do?lecNo=${list.lecNo}"'>
 	            <img class="img-fluid rounded mb-3 mb-md-0" src="${cpath}${list.thumbPath}" alt="">
 	          </a>
 	        </div>
@@ -235,10 +235,9 @@
     <script src="resources/js/theme.js"></script>
     <script type="text/javascript">
     	
-    	function videoOpen(){
-    		window.open('${cpath}/video.do', 'Lecture','width=1500, height=900'); 
-    		return false;
-    	}
+    	var data = ${viewAll.getMyLecNo()}
+    	
+    	
     </script>
   </body>
 </html>
