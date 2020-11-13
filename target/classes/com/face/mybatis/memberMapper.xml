@@ -6,22 +6,22 @@
 <mapper namespace="com.face.mybatis.memberMapper">
 	<!--========================= 회원가입=================================== -->
 	<insert id="memberInsert" parameterType="MemberVO">
-	    insert into face_member values(num_seq.nextval, #{email}, #{pw}, #{phone},'Unregistered')
+	    insert into student values(num_seq.nextval, #{id}, #{pw}, #{phone},'Unregistered')
 	</insert>
 	
 	<!--========================= 로그인=================================== -->
 	<select id="login" resultType="MemberVO">
-		select * from face_member where email = #{email} and pw = #{pw}   
+		select * from student where id = #{id} and pw = #{pw}   
 	</select>
 	
 	<!--========================= 이메일 중복 확인=================================== -->	
 	<select id="doubleCheck" resultType="int">
-		select count(*) from face_member where email = #{email}  
+		select count(*) from student where email = #{email}  
 	</select>
 	
 	<!--========================= 이메일 중복 확인=================================== -->
 	<update id="memberUpdate" parameterType="MemberVO">	   
-	    update face_member set pw = #{pw}, phone = #{phone} where = #{email}
+	    update student set pw = #{pw}, phone = #{phone} where = #{id}
 	</update>
 	
 </mapper>

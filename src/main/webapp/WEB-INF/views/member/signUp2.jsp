@@ -50,8 +50,8 @@
        		<!-- body -->
         	<div class="mid">
         		<div class="di_mar" style="margin-bottom:35px;">
-        			<p class="text-id">이메일</p>${result}
-        			<input type="text" class="text-wh" name="email" id="email" />
+        			<p class="text-id">아이디</p>${result}
+        			<input type="text" class="text-wh" name="id" id="id" />
         			<button onclick="idCheck()" class="btn btn-primary">중복확인</button>        			
         		</div>
         		<div class="di_mar">
@@ -106,7 +106,7 @@
    	
     	function formCh(){
     		if(document.myForm.email.value==''){
-    			alert("이메일을 입력하세요")
+    			alert("아이디를 입력하세요")
     			document.myForm.email.focus();
     		}else if(document.myForm.pw.value==''){
     			alert("비밀번호를 입력하세요")
@@ -127,11 +127,11 @@
     			url : "${cpath}/doubleCheck.do",
     			type : "post",
     			dataType : "json",
-    			data : {"email" : $("#email").val()},
+    			data : {"id" : $("#id").val()},
     			success : function(data){
     				var email = document.myForm.email
     				if(data == 1){
-    					alert("중복된 이메일 입니다.");  
+    					alert("중복된 아이디 입니다.");  
     					email.value =null;
     				}else if(data == 0){
     					alert("사용가능한 아이디입니다.");

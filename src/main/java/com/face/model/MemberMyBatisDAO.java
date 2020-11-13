@@ -25,9 +25,9 @@ public class MemberMyBatisDAO {
 	   }
 	   
 	   //회원가입 시 이메일 중복 확인
-	   public int doubleCheck(String email) {
+	   public int doubleCheck(String id) {
 		   SqlSession session=sqlSessionFactory.openSession();
-		   int result= session.selectOne("doubleCheck",email);		   
+		   int result= session.selectOne("doubleCheck",id);		   
 		   session.close();
 		   return result;			
 	   }
