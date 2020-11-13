@@ -51,13 +51,10 @@
          
          <div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">            
             <div >
-             	<button type="button" id="videoOn" >집중도 분석 ${myLecNo} </button>
+             	<button type="button" id="videoOn" >집중도 분석 </button>
                	<button onclick="lectureClose()" >강의종료</button>
             </div>
          </div>
-         <script type="text/javascript">
-         	var myLecNo = ${myLecNo};
-         </script>
          
       </div>
    </div>
@@ -88,27 +85,31 @@
 		window.scrollTo(0,250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정
 		}
 	
-		/*
-		var send = {'myLecNo': myLecNo};
 		
-		$('#videoOn').click(function(){
+		var send = {'myLecNo':  ${param.myLecNo}};
+		
+		 $('#videoOn').click(function(){
+			 
+			$("#mycam").attr("src",'http://118.40.119.27:5000/video_fa');
+			
 			$.ajax({ url : "http://localhost:5000/test",
 		             type : "POST",
 		             data: send,
 		             success : function(){
 		            	 alert('전송성공');
-		            	 //$("#mycam").attr("src",'http://118.40.119.27:5000/video_fa');
+		            	
 		                },
 		             error : function(){
 		                 alert('접속실패');
 		                }
 		            });
+			
 		});
 		
-	    	   */
-	     $('#videoOn').click(function(){	   
+	    	   
+	    /* $('#videoOn').click(function(){	   
 	    	 $("#mycam").attr("src",'http://118.40.119.27:5000/video_fa');
-	     });
+	     });*/
 	    
 	    //강의 창을 닫음
 	    function lectureClose(){
