@@ -64,7 +64,8 @@ public class MemberController {
 	@RequestMapping("/video.do")
 	public String video() {		
 		return "mainService/video";
-	}	
+	}
+	
 	
 	//================= End 메인 서비스 페이지 ===========================	
 	

@@ -6,7 +6,7 @@
 <mapper namespace="com.face.mybatis.memberMapper">
 	<!--========================= 회원가입=================================== -->
 	<insert id="memberInsert" parameterType="MemberVO">
-	    insert into student values(#{id}, #{pw}, #{phone})
+	    insert into student values(#{id}, #{pw}, #{phone}, 'Unregistered')
 	</insert>
 	
 	<!--========================= 로그인=================================== -->
@@ -23,5 +23,6 @@
 	<update id="memberUpdate" parameterType="MemberVO">	   
 	    update student set pw = #{pw}, phone = #{phone} where = #{id}
 	</update>
+	
 	
 </mapper>

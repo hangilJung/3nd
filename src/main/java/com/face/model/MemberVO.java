@@ -4,15 +4,13 @@ public class MemberVO {
 	private String id;
 	private String pw;
 	private String phone;
+	private String img;
+	
+	
 	
 	
 	public MemberVO() {
 		super();
-	}
-		
-	
-	public MemberVO(String id) {
-		this.id = id;
 	}
 	
 	public MemberVO(String id, String pw) {
@@ -20,20 +18,10 @@ public class MemberVO {
 		this.pw = pw;
 	}
 	
-	public MemberVO(String id, String pw, String phone) {
-		this.id = id;
-		this.pw = pw;
-		this.phone = phone;
-	}
 
-	
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", pw=" + pw + ", phone=" + phone + "]";
-	}
 	public String getId() {
 		return id;
-	}	
+	}
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -49,9 +37,16 @@ public class MemberVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
-		
-	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	@Override
+	public String toString() {
+		return "MemberVO [id=" + id + ", pw=" + pw + ", phone=" + phone + ", img=" + img + "]";
+	}	
 	
 }
