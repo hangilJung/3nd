@@ -142,8 +142,16 @@
        					<div>
 	       					<div style="margin-bottom : 20px;"><input type="password" id="pw" placeholder="비밀번호를 입력하시요" ></div>     						
 	       					<div style="margin-bottom : 20px;"><input type="text" id="phone" placeholder="전화번호" ></div>
-	       					<div style="margin-bottom : 20px;"><button type="button" onclick="location.href='http://localhost:9000/makeDir?info=${info.getEmail()}'">얼굴 사진 등록하기</button></div>
-	       					<div style="margin-bottom : 20px;"><input type="submit" value="확인"></div>      						
+	       					<c:choose>
+	       						<c:when test="${info.getImg() == Unregistered}">
+	       							<div style="margin-bottom : 20px;"><button type="button" id="registeration" >얼굴 사진 등록하기</button></div>
+	       						</c:when>
+	       						<c:otherwise>
+	       							<p>얼굴 사진 등록완료</p>
+	       							<div style="margin-bottom : 20px;"><button type="button" >얼굴 사진 다시 등록하기</button></div>
+	       						</c:otherwise>
+	       					</c:choose>	
+	       					<div style="margin-bottom : 20px;"><input type="submit" value="수정하기"></div>      						
        					</div>
        				</form>
        		</div>
@@ -198,6 +206,22 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
+	<script type="text/javascript">
 	
+		$('#registeration').click(function(){
+			$.ajax({
+				url : 'http://localhost:9000/makeDir',
+				data : {'info' : '${info.getId()}' },
+				success : function(data){
+					
+					alert("얼굴 사진 등록 완료");					
+				},
+				error : function(){
+					alert("실패");
+				}
+			});
+		});
+		
+	</script>
   </body>
 </html>

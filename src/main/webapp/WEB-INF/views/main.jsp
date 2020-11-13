@@ -185,5 +185,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
+    <script>
+    	//var info = '${info.getId()}';
+    	
+	    $(function(){
+	    	if('${info.getImg()}'=="Unregistered"){
+	    		alert("얼굴 사진 등록을 위해 페이지 이동을 합니다.");
+	    		location.href="${cpath}/modify.do";
+    		}
+	    });
+    </script>
   </body>
 </html>

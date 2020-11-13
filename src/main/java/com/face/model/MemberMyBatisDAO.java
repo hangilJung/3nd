@@ -48,5 +48,6 @@ public class MemberMyBatisDAO {
 		   session.close();
 		   return result;
 	   }
+	   
 	
 }
