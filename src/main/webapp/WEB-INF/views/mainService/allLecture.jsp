@@ -32,9 +32,13 @@
 			margin-left:10px;			
 		}
 		.col-md-7 img{
-			position: absolute; top:0; left: 0;
+			top:0; left: 0;
 			width: 100%;
 			height: 100%;
+		}
+		#btn btn-primary{
+			text-align:right;
+			
 		}	
 	</style>
   </head>
@@ -170,14 +174,18 @@
 	  <c:forEach items="${viewAll }" var="list" varStatus="status">
 	      <div class="row" style="margin-bottom:35px;">
 	        <div class="col-md-7">
-	          <a onclick="href='lectureSubList.do?lecNo=${list.lecNo}'">
+	          <a onclick="videoOpen()">
 	            <img class="img-fluid rounded mb-3 mb-md-0" src="${cpath}${list.thumbPath}" alt="">
 	          </a>
 	        </div>
 	        <div class="col-md-5">
+
 	          <h3>${list.subject } ${list.lecName }</h3>
 	          <p>${list.lecIntro}</p>
-	          <a class="btn btn-primary" href="lectureSubList.do?lecNo=${list.lecNo}">썸네일클릭시비디오보기함수가있어서만든강의세부사항버튼</a>
+	          <div style="text-align:right; margin-top:50px; ">
+	          <a class="btn btn-primary" href="lectureSubList.do?lecNo=${list.lecNo}" style="color:#fdc632;
+			background-color:#002347; border:transparent; font-weight:bold;" >강의세부사항</a>
+	          </div>
 	        </div>
 	      </div>
       </c:forEach>

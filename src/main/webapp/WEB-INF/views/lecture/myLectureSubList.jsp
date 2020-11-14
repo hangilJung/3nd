@@ -35,27 +35,31 @@
 				.lect_top{
 			padding: 30px 0 0 30px;
 		}
+
 		.lect_bottom{
 			padding: 0 30px 0 30px;
 		}
-		.info_img{
-			padding: 20px 0 0 50px;
-			text-align: center;
+		.container{
+			margin-top:50px;
 		}
-		.info_area{
-			width:60%;
-			padding: 0 50px 50px 100px;
-		}
-		.list_info{
-			padding:50px 50px 50px 0;
+		.col-md-7 img{
+			position: absolute; top:0; left: 0;
+			width: 100%;
+			height: 100%;
 		}
 		.info_table td {
     	height: 36px;
     	border-top: 2px solid #e8e8e8;
 		}
-		button{
-			border-color : transparent;
-			background-color: transparent;
+		
+	
+		#bt{
+			background-color:#002347;
+			color : #fdc632;
+			border-width:3px;
+			border-radius:45px;
+			padding:0 12px 0 12px;
+
 		}
 		
 			
@@ -160,15 +164,14 @@
       </div>
     </section>
     <!--================End Home Banner Area =================-->
-    <div class="lect_top">
+ <div class="container" style="margin-bottom:100px;">
 
-		<div class="info_img" style=" float:left; width:40%;">
+	    <div class="row" style="margin-bottom:35px;">
+	      <div class="col-md-7" style="width:40%;flex: 0 0 40%;max-width: 40%;  ">
 			<img src="${cpath}${viewAll.get(0).thumbPath}">
-		</div>
-    		
-		<div class="info_area" style="float:right; text-align:center;">
-			
-			<table class="info_table " style="float:right font-size: 16px; line-height: 3;">
+		  </div>
+   	        <div class="col-md-5" style="width: 60%; flex: 0 0 60%;max-width: 60%; padding-left: 40px;">
+	          <table class="info_table " style="float:right font-size: 16px; line-height: 3;">
 				<colgroup>
 					<col style="width:18%">
 					<col style="width:26%">
@@ -191,7 +194,7 @@
 						<tr>
 							<th><span>선생님</span></th>
 							<td>${viewAll.get(0).teacher}</td>
-							<th><span>교재</span></th>
+							<th><span >교재</span></th>
 							<td>${viewAll.get(0).book}</td>
 						</tr>
 						<tr>
@@ -201,15 +204,19 @@
 							<td>${viewAll.get(0).levels}</td>
 						</tr>
 						<tr>
-							<td colspan="4" style="text-align:center;">
-								<button onclick="btnClick()">수강취소</button>
+							<td colspan="4" style="text-align:center; ">
+								<button id="bt"onclick="btnClick()" style="margin-top:10px;font-size: 12px;font-weight:bold;">학습하기(수강신청)</button>
 							</td>
 						</tr>
 						</tbody></table>
-				</div>
-    </div>
-	<div class="lect_bottom">	
-		<table style="text-align: center; width: 100%" border="1">
+	        </div>
+	      </div>
+	      
+	      
+	      
+	<div class="lect_bottom">
+		
+		<table style="text-align: center; width: 100%" line-height: 3;" border="1">
 			<tr>	
 				<td>회차</td>
 				<td>회차소개</td>
