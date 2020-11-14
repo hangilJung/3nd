@@ -57,6 +57,7 @@
 			border-color : transparent;
 			background-color: transparent;
 		}
+		
 			
 	</style>
   </head>

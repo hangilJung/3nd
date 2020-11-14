@@ -30,6 +30,11 @@
 			list-style-type: none;
 			float:left;
 			margin-left:10px;			
+		}
+		.col-md-7 img{
+			position: absolute; top:0; left: 0;
+			width: 100%;
+			height: 100%;
 		}	
 	</style>
   </head>
@@ -163,7 +168,7 @@
       </h1>
 
 	  <c:forEach items="${viewAll }" var="list" varStatus="status">
-	      <div class="row">
+	      <div class="row" style="margin-bottom:35px;">
 	        <div class="col-md-7">
 	          <a onclick="videoOpen()">
 	            <img class="img-fluid rounded mb-3 mb-md-0" src="${cpath}${list.thumbPath}" alt="">
