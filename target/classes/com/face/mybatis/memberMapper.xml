@@ -19,9 +19,9 @@
 		select count(*) from student where id = #{id}  
 	</select>
 	
-	<!--========================= 이메일 중복 확인=================================== -->
-	<update id="memberUpdate" parameterType="MemberVO">	   
-	    update student set pw = #{pw}, phone = #{phone} where = #{id}
+	<!--================ 얼굴 사진 등록 후 student테이블의  img 컬럼 변경 ===================== -->
+	<update id="faceRegistration" parameterType="String">	   
+	    update student set img = 'Registered' where id = #{id}
 	</update>
 	
 	

@@ -49,5 +49,15 @@ public class MemberMyBatisDAO {
 		   return result;
 	   }
 	   
+	 //얼굴 사진 등록 완료
+	   public int faceRegistration(String id) {
+		   System.out.println("DAO의 id값은 : "+ id);	
+		   SqlSession session=sqlSessionFactory.openSession();
+		   int result = session.update("faceRegistration", id);
+		   session.commit();
+		   session.close();
+		   return result;
+	   }
+	   
 	
 }

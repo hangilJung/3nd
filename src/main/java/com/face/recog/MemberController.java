@@ -149,5 +149,13 @@ public class MemberController {
 	public String modify() {		
 		return "myPage/modify";
 	}
+	
+	//얼굴 사진 등록 완료 처리
+	@RequestMapping("/faceRegistration.do")
+	public String faceRegistration(String id) {	
+		System.out.println("MemberController에서의 "+id);
+		dao.faceRegistration(id);
+		return "redirect:/myPage/modify";
+	}
 }
 

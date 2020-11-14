@@ -143,12 +143,11 @@
 	       					<div style="margin-bottom : 20px;"><input type="password" id="pw" placeholder="비밀번호를 입력하시요" ></div>     						
 	       					<div style="margin-bottom : 20px;"><input type="text" id="phone" placeholder="전화번호" ></div>
 	       					<c:choose>
-	       						<c:when test="${info.getImg() == Unregistered}">
+	       						<c:when test="${info.getImg() == 'Unregistered'}">
 	       							<div style="margin-bottom : 20px;"><button type="button" id="registeration" >얼굴 사진 등록하기</button></div>
 	       						</c:when>
 	       						<c:otherwise>
-	       							<p>얼굴 사진 등록완료</p>
-	       							<div style="margin-bottom : 20px;"><button type="button" >얼굴 사진 다시 등록하기</button></div>
+	       							<span>얼굴 사진 등록완료</span>
 	       						</c:otherwise>
 	       					</c:choose>	
 	       					<div style="margin-bottom : 20px;"><input type="submit" value="수정하기"></div>      						
@@ -208,19 +207,31 @@
     <script src="resources/js/theme.js"></script>
 	<script type="text/javascript">
 	
-		$('#registeration').click(function(){
-			$.ajax({
-				url : 'http://localhost:9000/makeDir',
-				data : {'info' : '${info.getId()}' },
-				success : function(data){
+	$('#registeration').click(function(){
+		$.ajax({
+			url : 'http://localhost:9000/makeDir',
+			data : {'info' : '${info.getId()}' },
+			success : function(){					
+				alert("얼굴 사진 등록 완료");	
+				
+				$.ajax({
+					url : "${cpath}/faceRegistration.do",
+					data : {'id' : '${info.getId()}'},
+					sucees : function(){
+						alert("2번째 ajax 성공");
+					},
+					error : function(){
+						alert("2번째 ajax 실패")
+					}
 					
-					alert("얼굴 사진 등록 완료");					
-				},
-				error : function(){
-					alert("실패");
-				}
-			});
+				});
+				
+			},
+			error : function(){
+				alert("실패");
+			}
 		});
+	});
 		
 	</script>
   </body>
