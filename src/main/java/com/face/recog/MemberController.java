@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -70,13 +71,19 @@ public class MemberController {
 	//================= End 메인 서비스 페이지 ===========================	
 	
 	
-	//내가 볼 강의를 클릭하면 동영상이 나온다
-//		@RequestMapping("/update.do")
-//		public String update() {
-//			int result = dao.memberUpdate(vo);
-//			
-//			return "myPage/myPage";
-//		}	
+	//회원 정보 업데이트
+		@RequestMapping("/update.do")
+		public String update(
+				@RequestParam String id, 
+				@RequestParam String pw, 
+				@RequestParam String phone,
+				Model model) {
+			MemberVO vo = new MemberVO(id, pw, phone);
+			int result = dao.memberUpdate(vo);
+			
+			
+			return "myPage/myPage";
+		}	
 	
 	
 	
@@ -96,6 +103,7 @@ public class MemberController {
 			session.setAttribute("info", info);			
 		}else {
 			System.out.println("로그인 실패");
+			return "redirect:/loginForm.do";
 		}
 		
 		return "redirect:/main.do";
@@ -146,18 +154,25 @@ public class MemberController {
 	
 	// 마이 페이지(비밀번호,전화번호, 얼굴사진 수정)
 	@RequestMapping("/modify.do")
-	public String modify(String id, String checkpw) {
-		System.out.println("controller : " + id);
+	public String pwCheck(String id, String pwCheck, Model model) {
 		String result = null;
-		String chpw = dao.pwCheck(id);		
-		if(chpw.equals(checkpw)){
+		String pwInfo = dao.pwCheck(id);	
+		if(pwInfo.equals(pwCheck)){
 			result = "myPage/modify";
+			model.addAttribute("message","");
 		}else {
 			result = "myPage/myPage";
-		}
-		
+			model.addAttribute("message", "no");
+			
+		}		
 		return result;
 	}
+	
+	// 마이 페이지(비밀번호,전화번호, 얼굴사진 수정)
+		@RequestMapping("/modify2.do")
+		public String moveModify() {			
+			return "myPage/modify";
+		}
 	
 	//얼굴 사진 등록 완료 처리
 	@RequestMapping("/faceRegistration.do")

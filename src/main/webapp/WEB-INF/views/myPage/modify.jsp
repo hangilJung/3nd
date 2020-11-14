@@ -139,7 +139,7 @@
        				<form action="modify.do" method="post">
        					<br>
        					<br>
-       					<div>
+       					<div><input type="hidden" name="id" value="${info.getId()}"/>
 	       					<div style="margin-bottom : 20px;"><input type="password" id="pw" placeholder="비밀번호를 입력하시요" ></div>     						
 	       					<div style="margin-bottom : 20px;"><input type="text" id="phone" placeholder="전화번호" ></div>
 	       					<c:choose>
@@ -207,7 +207,15 @@
     <script src="resources/js/theme.js"></script>
 	<script type="text/javascript">
 	
+
+	$(function(){
+		if('${info.getImg()}'=="Unregistered"){
+			alert("얼굴 사진 등록하기 버튼을 눌러주세요.");
+		}
+	});
+	
 	$('#registeration').click(function(){
+		alert("카메라를 봐주세요.");
 		$.ajax({
 			url : 'http://localhost:9000/makeDir',
 			data : {'info' : '${info.getId()}' },

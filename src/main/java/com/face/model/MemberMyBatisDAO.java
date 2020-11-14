@@ -54,6 +54,7 @@ public class MemberMyBatisDAO {
 		   System.out.println("DAO의 id값은 : "+ id);	
 		   SqlSession session=sqlSessionFactory.openSession();
 		   int result = session.update("faceRegistration", id);
+		   System.out.println("DAO의 result 값 " + result);
 		   session.commit();
 		   session.close();
 		   return result;
@@ -63,9 +64,10 @@ public class MemberMyBatisDAO {
 	   public String pwCheck(String id) {
 		   System.out.println("DAO에서의 값 : " + id);
 		   SqlSession session=sqlSessionFactory.openSession();
-		   String chpw = session.selectOne("pwCheck", id);
+		   String infoId = session.selectOne("pwCheck", id);
+		   System.out.println("DAO pwInfo 값 : " + infoId);
 		   session.close();
-		   return chpw;
+		   return infoId;
 	   }
 	   
 	

@@ -25,8 +25,12 @@
 	</update>
 	
 	<!--================ 회원정보 수정 페이지에서 수정하기 전 본인인증 ===================== -->
-	<select id="pwCheck" parameterType="String">
-		select pw from student where id = #{id}   
+	<select id="pwCheck" parameterType="String" resultType="String">
+		select pw from student where id = #{id}
 	</select>
 	
+	<!--============================ 회원정보 수정 ============================= -->
+	<update id="memberUpdate" parameterType="MemberVO">
+		update student set pw = #{pw}, phone = #{phone} where id = #{id}
+	</update>
 </mapper>

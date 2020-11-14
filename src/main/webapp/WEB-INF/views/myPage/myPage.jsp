@@ -1,3 +1,4 @@
+<%@page import="com.face.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -25,6 +26,8 @@
   </head>
 
   <body>
+  
+  
     <!--================ Start Header Menu Area =================-->
     <header class="header_area">
       <div class="main_menu">
@@ -137,12 +140,12 @@
             <div class="modify">
             	<h1>MY PAGE</h1>
        				<form action="${cpath}/modify.do" method="post">
-       				<input type="hidden" name ="id" value="${info}"/>
+       					<input type="hidden" name ="id" value="${info.getId()}"/>
        					<br>
        					<br>
-       					<input type="password" name="checkPw" placeholder="비밀번호를 입력하세요" >
-       					<input type="submit" value="확인">
-       			</form>
+       					<input type="password" name="pwCheck" placeholder="비밀번호를 입력하세요" />
+       					<input type="submit" value="확인"/>
+       				</form>
        		</div>
        	</div>
       
@@ -196,7 +199,11 @@
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
 	<script>
-		
+		$(function(){
+			if("${message}"=='no'){
+				alert("비밀번호가 틀립니다.");
+			}
+		});
 	</script>
   </body>
 </html>

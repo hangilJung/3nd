@@ -10,14 +10,17 @@ public class MemberVO {
 	
 	
 	public MemberVO() {
-		super();
-	}
+	}	
 	
-	public MemberVO(String id, String pw) {
+	
+
+	public MemberVO(String id, String pw, String phone) {	
 		this.id = id;
 		this.pw = pw;
+		this.phone = phone;
 	}
-	
+
+
 
 	public String getId() {
 		return id;

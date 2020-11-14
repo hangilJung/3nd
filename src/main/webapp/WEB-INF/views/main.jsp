@@ -53,6 +53,12 @@
 
   <body>
     <!--================ Start Header Menu Area =================-->
+    
+    <%
+    	MemberVO vo = (MemberVO) session.getAttribute("vo");
+    
+    
+    %>
     <header class="header_area">
       	<div class="main_menu">
 
@@ -191,7 +197,7 @@
 	    $(function(){
 	    	if('${info.getImg()}'=="Unregistered"){
 	    		alert("얼굴 사진 등록을 위해 페이지 이동을 합니다.");
-	    		location.href="${cpath}/modify.do";
+	    		location.href="${cpath}/modify2.do";
     		}
 	    });
     </script>
