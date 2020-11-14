@@ -59,5 +59,14 @@ public class MemberMyBatisDAO {
 		   return result;
 	   }
 	   
+	 //회원정보 수정 전 인증 단계(myPage.jsp)
+	   public String pwCheck(String id) {
+		   System.out.println("DAO에서의 값 : " + id);
+		   SqlSession session=sqlSessionFactory.openSession();
+		   String chpw = session.selectOne("pwCheck", id);
+		   session.close();
+		   return chpw;
+	   }
+	   
 	
 }

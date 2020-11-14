@@ -137,9 +137,10 @@
             <div class="modify">
             	<h1>MY PAGE</h1>
        				<form action="${cpath}/modify.do" method="post">
+       				<input type="hidden" name ="id" value="${info}"/>
        					<br>
        					<br>
-       					<input type="password" placeholder="비밀번호를 입력하시요" >
+       					<input type="password" name="checkPw" placeholder="비밀번호를 입력하세요" >
        					<input type="submit" value="확인">
        			</form>
        		</div>
@@ -194,6 +195,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
-
+	<script>
+		
+	</script>
   </body>
 </html>

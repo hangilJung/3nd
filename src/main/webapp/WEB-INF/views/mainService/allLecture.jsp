@@ -170,7 +170,7 @@
 	  <c:forEach items="${viewAll }" var="list" varStatus="status">
 	      <div class="row" style="margin-bottom:35px;">
 	        <div class="col-md-7">
-	          <a onclick="videoOpen()">
+	          <a onclick="href='lectureSubList.do?lecNo=${list.lecNo}'">
 	            <img class="img-fluid rounded mb-3 mb-md-0" src="${cpath}${list.thumbPath}" alt="">
 	          </a>
 	        </div>

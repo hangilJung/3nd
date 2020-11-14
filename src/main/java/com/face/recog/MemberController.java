@@ -71,12 +71,12 @@ public class MemberController {
 	
 	
 	//내가 볼 강의를 클릭하면 동영상이 나온다
-		@RequestMapping("/update.do")
-		public String update(MemberVO vo) {
-			int result = dao.memberUpdate(vo);
-			
-			return "myPage/myPage";
-		}	
+//		@RequestMapping("/update.do")
+//		public String update() {
+//			int result = dao.memberUpdate(vo);
+//			
+//			return "myPage/myPage";
+//		}	
 	
 	
 	
@@ -146,8 +146,17 @@ public class MemberController {
 	
 	// 마이 페이지(비밀번호,전화번호, 얼굴사진 수정)
 	@RequestMapping("/modify.do")
-	public String modify() {		
-		return "myPage/modify";
+	public String modify(String id, String checkpw) {
+		System.out.println("controller : " + id);
+		String result = null;
+		String chpw = dao.pwCheck(id);		
+		if(chpw.equals(checkpw)){
+			result = "myPage/modify";
+		}else {
+			result = "myPage/myPage";
+		}
+		
+		return result;
 	}
 	
 	//얼굴 사진 등록 완료 처리
