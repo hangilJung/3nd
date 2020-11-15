@@ -40,7 +40,7 @@
    <!-- Header -->
 	<div class="container">
 		<div id="header">
-        	<a href="${cpath}/main.do"><img src="resources/img/logo.png" alt=""/></a>
+        	<a href="${cpath}/main.do"><img src="resources/img/eyedu2.png" alt=""/></a>
         </div>
         
         <div class="onemid" style="margin-bottom:100px;">

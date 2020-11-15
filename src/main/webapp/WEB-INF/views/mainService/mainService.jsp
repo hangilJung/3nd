@@ -43,7 +43,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="${cpath}/main.do"
-              ><img src="resources/img/logo2.png" alt=""
+              ><img src="resources/img/eyedu.png" alt=""
             /></a>
             <button
               class="navbar-toggler"

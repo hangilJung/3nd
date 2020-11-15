@@ -39,9 +39,6 @@
 		.lect_bottom{
 			padding: 0 30px 0 30px;
 		}
-		.container{
-			margin-top:50px;
-		}
 		.col-md-7 img{
 			position: absolute; top:0; left: 0;
 			width: 100%;
@@ -75,7 +72,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="${cpath}/main.do"
-              ><img src="resources/img/logo2.png" alt=""
+              ><img src="resources/img/eyedu.png" alt=""
             /></a>
             <button
               class="navbar-toggler"
@@ -164,7 +161,7 @@
       </div>
     </section>
     <!--================End Home Banner Area =================-->
- <div class="container" style="margin-bottom:100px;">
+ <div class="container" style="margin-bottom:100px; margin-top:50px">
 
 	    <div class="row" style="margin-bottom:35px;">
 	      <div class="col-md-7" style="width:40%;flex: 0 0 40%;max-width: 40%;  ">
@@ -216,12 +213,12 @@
 	      
 	<div class="lect_bottom">
 		
-		<table style="text-align: center; width: 100%" line-height: 3;" border="1">
+			<table style="text-align: center; width: 100%" line-height: 3;" border="1">
 			<tr>	
-				<td>회차</td>
-				<td>회차소개</td>
-				<td>강의보기</td>
-				<td>집중도분석</td>
+				<th>회차</th>
+				<th>회차소개</th>
+				<th>강의보기</th>
+				<th>집중도분석</th>
 			</tr>
 			<c:forEach items="${viewAll }" var="list" varStatus="status">
 				<tr>
@@ -236,9 +233,9 @@
 					</td>
 					<!-- onclick="location.href='video.do?myLecNo=${list.myLecNo}'" -->
 				</tr>
-			</c:forEach>
-		</table>	
-	</div>
+				</c:forEach>
+			</table>	
+		</div>
 
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

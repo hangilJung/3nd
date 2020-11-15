@@ -48,6 +48,11 @@
 			font-weight: bold;
 			color:#002347
 		}
+
+		.header_area{
+			background-color:white;
+			font-weight: bold;
+		}
 	</style>
   </head>
 
@@ -66,7 +71,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="main.do"
-              ><img src="resources/img/logo.png" alt=""
+              ><img src="resources/img/eyedu2.png" alt=""
             /></a>
             <button
               class="navbar-toggler"

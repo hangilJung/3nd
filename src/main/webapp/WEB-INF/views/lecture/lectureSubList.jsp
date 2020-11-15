@@ -35,9 +35,7 @@
 		.lect_bottom{
 			padding: 0 30px 0 30px;
 		}
-		.container{
-			margin-top:50px;
-		}
+
 		.col-md-7 img{
 			position: absolute; top:0; left: 0;
 			width: 100%;
@@ -76,7 +74,7 @@ function btnClick(){
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a class="navbar-brand logo_h" href="${cpath}/main.do"
-              ><img src="resources/img/logo2.png" alt=""
+              ><img src="resources/img/eyedu.png" alt=""
             /></a>
             <button
               class="navbar-toggler"
@@ -165,7 +163,7 @@ function btnClick(){
       </div>
     </section>
     <!--================End Home Banner Area =================-->
-    <div class="container" style="margin-bottom:100px;">
+    <div class="container" style="margin-bottom:100px; margin-top:50px">
 
 	      <div class="row" style="margin-bottom:35px;">
 	        <div class="col-md-7" style="width:40%;flex: 0 0 40%;max-width: 40%;  ">
