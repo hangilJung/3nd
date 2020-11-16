@@ -2,6 +2,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+<c:set var="info" scope="session" value="${info}"/>
 <%
 	ArrayList<SelfStudyVO> list = (ArrayList<SelfStudyVO>)request.getAttribute("list");
 	String date = "";
@@ -17,27 +20,50 @@
 		studyTime += st + ",";
 	}
 %>
+
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" name="viewport" content="width=device-width">
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
 <title>달력</title>
-<style>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="resources/css/bootstrap.css" />
+    <link rel="stylesheet" href="resources/css/flaticon.css" />
+    <link rel="stylesheet" href="resources/css/themify-icons.css" />
+    <link rel="stylesheet" href="resources/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="resources/vendors/nice-select/css/nice-select.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="resources/css/style.css" />
+    <style type="text/css">
+		a:link { color: black; text-decoration: none;}
+		a:visited { color: black; text-decoration: none;}
+		a:hover { color: black; text-decoration: underline;}	
+		ul li{
+			list-style-type: none;
+			float:left;
+			margin-left:10px;			
+		}	
 .content-wrap {
 	width: 100%;
+	heigth: 100%;
 	margin: 0 auto;
-	border: 4px solid rgba(161, 161, 161, 0.5);
-	border-radius: 20px;
 	overflow: hidden;
-	background: #ddaf35;
+	background: white;
+	m
 }
 
 .content-left {
-	background: #0b0809;
+	background: #002347;
 	color: #ddaf35;
 	float: left;
 	width: 100%;
-	padding: 30px;
+
 }
 
 .main-wrap {
@@ -53,7 +79,7 @@
 .main-date {
 	font-size: 120px;
 	font-weight: bold;
-	margin: 20px 0;
+	margin: 80px 0;
 }
 
 .selfStudy-wrap {
@@ -61,8 +87,8 @@
 }
 
 .selfStudy-title {
-	font-size: 20px;
-	font-weight: 100;
+	font-size: 16px;
+	font-weight: bold;
 	margin: 0 0 10px 0;
 }
 
@@ -73,7 +99,6 @@
 	background: #0b0809;
 	color: #ddaf35;
 	line-height: normal;
-	padding: .8em .5em 0 0;
 	font-family: inherit;
 	border: 0;
 	border-bottom: 1px dashed #ddaf35;;
@@ -82,7 +107,7 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .input-data {
@@ -103,7 +128,7 @@
 
 .content-right {
 	float: left;
-	width: 90%;
+	width: 40%;
 	padding: 10px;
 }
 
@@ -120,17 +145,16 @@
 	height: 40px;
 	text-align: center;
 	font-size: 20px;
-	font-weight: bold;
 }
 
 .active {
-	background: #0b0809;
+	background: #002347;
 	border-radius: 50%;
 	color: #ffffff;
 }
 
 .is{
-	background: #ffff00;
+	background: #fdc632;
 	border-radius: 50%;
 	color: #000000;
 }
@@ -138,58 +162,60 @@
 @media ( min-width : 850px) {	/* 반응형  */
 
 	.content-wrap {
-		width: 800px;
-		height: 600px;
+		width: 100%;
+		height: 100%;
 		margin: 0 auto;
-		border: 4px solid rgba(161, 161, 161, 0.5);
-		border-radius: 20px;
 		overflow: hidden;
-		background: #ddaf35;
+		background: white;
 	}
 	.content-left {
-		background: #0b0809;
+		background: #002347;
 		color: #ddaf35;
 		float: left;
-		width: 360px;
-		height: 600px;
-		padding: 90px 20px 20px 0;
+		width: 60%;
+		height: 100%;
+		padding: 0 20px 20px 0;
 	}
 	.main-wrap {
 		text-align: center;
 		margin: 20px 0 0 0;
 	}
 	.main-day {
-		font-size: 30px;
+		font-size: 50px;
 		font-weight: bold;
+		color:white;
+		margin-top:40px;
 	}
 	.main-date {
 		font-size: 120px;
 		font-weight: bold;
-		margin: 20px 0;
+		color:white;
+		marigin:80px 0;
 	}
 	.selfStudy-wrap {
 		padding: 0 0 0 40px;
 	}
 	.selfStudy-title {
-		font-size: 20px;
-		font-weight: 100;
+		font-size: 16px;
+		font-weight: bold;
 		margin: 0 0 10px 0;
 	}
 	.input-box {
-		width: 70%;
-		height: auto;
-		background: #0b0809;
-		color: #ddaf35;
-		line-height: normal;
-		padding: .8em .5em 0 0;
-		font-family: inherit;
-		border: 0;
-		/* border-bottom: 1px dashed #ddaf35; */
-		border-radius: 0;
-		outline-style: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
+    	width: 100px;
+    	height: auto;
+    	background: black;
+    	margin-left:5px;
+    	padding-left:10px;
+    	color: white;
+    	line-height: normal;
+    	font-family: inherit;
+    	border: 0;
+    	/* border-bottom: 1px dashed #ddaf35; */
+    	border-radius: 0;
+    	outline-style: none;
+    	-webkit-appearance: none;
+    	-moz-appearance: none;
+    	appearance: none;
 	}
 	.input-data {
 		cursor: pointer;
@@ -207,25 +233,29 @@
 	}
 	.content-right {
 		float: left;
-		width: 360px;
-		height: 600px;
+		width: 40%;
+		height: 100%;
 		padding: 100px 20px 20px 20px;
 	}
 	.sun {
 		color: #ef3333;
+		font-weight:bold;
 	}
 	.sat {
+		font-weight:bold;
 		color: #2107e0;
+	}
+	.mf{
+		font-weight:bold;
 	}
 	.content-right table tr td {
 		width: 50px;
 		height: 50px;
 		text-align: center;
 		font-size: 20px;
-		font-weight: bold;
 	}
 	.active {
-		background: #0b0809;
+		background: #002347;
 		border-radius: 50%;
 		color: #ffffff;
 	}
@@ -237,17 +267,14 @@
 		text-align: center;
 	}
 	.time{
-  	 	display:inline-block;
-   		border:1px solid #EFEFEF;
-   		background:#F8F8F8;	
+  	 	background:transparent;	
 	}	
 	.timerBox{
-		width: 200px;
-		outline: 2px solid black;
+
 	}
 	.timerBox .time{
-		font-size: 30pt;
-		color: #4C4C4C;
+		font-size: 40pt;
+		color: white;
 		font-family: sans-serif;
 	}
 	.btnBox{
@@ -259,36 +286,135 @@
 		color: #FAED7D;
 		cursor: pointer;
 	}
+    #btn-black{
+    	bgcolor:white;
+    	text-align:center;
+    	border: 3px solid #002347;
+    	border-radius: 20px;
+    	width:70%;
+    	margin-left:80px;
+    	
+    }
+
 </style>
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
+    <header class="header_area">
+      <div class="main_menu">   
+
+        <nav class="navbar navbar-expand-lg navbar-light"  style="background:black;">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="${cpath}/main.do"
+              ><img src="resources/img/eyedu.png" alt=""
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span> <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+              <ul class="nav navbar-nav menu_nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="${cpath}/main.do">홈</a>
+                </li>
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"      
+                    style="color:white;"
+                    >강 의</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="${cpath}/mainService.do">수강중인 강의</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
+                </li>
+                <li class="nav-item submenu dropdown">
+                  <a
+                    href="#"
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    role="button"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    style="color:white;"
+                    >마이 페이지</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a class="nav-link" href="${cpath}/myPage.do">회원 정보 수정</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="logout.do">로그아웃</a>
+                    </li>
+                  </ul>
+                </li>   
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+	<br><br><br><br>
+
 		<div class="content-wrap">
 			<div class="content-left">
 				<div class="main-wrap">
-					<div id="main-day" class="main-day"></div>	<!-- 요일 -->
-					<div id="main-date" class="main-date"></div>	<!-- 일 -->
+				<h1 style="font-size:20pt; color:white; text-align:left; padding-left:40px; line-height:40px">자리 비우는 시간까지 체크해주는 <br>
+				<a style="color:#fdc632; font-weight:bold;">스마트 자습 타이머</a>로 효율을 높여보세요! 
+				</h1>
+					
+					
+				<div id="main-day" class="main-day"></div>	<!-- 요일 -->
+				<div id="main-date" class="main-date"></div>	<!-- 일 -->
 				</div>
-				<div class="selfStudy-wrap">
-					<div class="selfStudy-title">자습시간</div>
-					<div class="input-wrap">
-						<input type="text" id="input-box" class="input-box">	<!-- 자습시간 -->
+			<div class="selfStudy-wrap">
+				<div class="selfStudy-title">총 자습시간</div>
+				<div style="float:left; background-color:balck; color:white;font-size:22px;">
+				<h>${info.getId()}님의 총 자습시간은</h>
+				</div>
+				<div class="input-wrap" style="float:left; padding-left:10px">
+					<input type="text" id="input-box" class="input-box">	<!-- 자습시간 -->
+				</div>
+				<br>
+			
+				<div id="box" style="text-align:center; margin-top:20px">
+					<div id='timerBox' class="timerBox">
+					<div id="time" class="time">00:00:00</div>
+					
 					</div>
-					<div id="box">
-						<div id='timerBox' class="timerBox">
-							<div id="time" class="time">00:00:00</div>
-								<div>
-									<img alt="" src="resources/img/on.jpeg" width="30">
-									<img alt="" src="resources/img/off.jpeg" width="30">
-								</div>
-						</div>
-						<div class="btnBox">
-							<i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
-							<i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
-							<i id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
-						</div>
+					<div class="btnBox" style="text-align:center;">
+						<i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
+						<i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
+						<i id="stopbtn" class="fa fa-stop" aria-hidden="true"></i>
 					</div>
+				</div>
 				</div>
 			</div>
 			<div class="content-right">
@@ -296,23 +422,41 @@
 					<thead>
 						<tr class="btn-wrap clearfix">
 							<td><label id="prev"> &#60; </label></td>	<!-- 이전 -->
-							<td align="center" id="current-year-month" colspan="5"></td>	<!-- 년 월 -->
+							<td align="center" style="font-weight:bold; color:black; font-size:22pt;" id="current-year-month" colspan="5"></td>	<!-- 년 월 -->
 							<td><label id="next"> &#62; </label></td>	<!-- 다음 -->
 						</tr>
 						<tr>
 							<td class="sun" align="center">Sun</td>
-							<td align="center">Mon</td>
-							<td align="center">Tue</td>
-							<td align="center">Wed</td>
-							<td align="center">Thu</td>
-							<td align="center">Fri</td>
+							<td class="mf" align="center">Mon</td>
+							<td class="mf" align="center">Tue</td>
+							<td class="mf" align="center">Wed</td>
+							<td class="mf" align="center">Thu</td>
+							<td class="mf" align="center">Fri</td>
 							<td class="sat" align="center">Sat</td>
 						</tr>
 					</thead>
 					<tbody id="calendar-body" class="calendar-body"></tbody>	<!-- 달력 표시하는 곳 -->
 				</table>
+			<div id="btn-black">
+  			<a  style="color:#fdc632; font-size: 16px; font-weight: bold; line-height: 40px;">●</a>
+  			<a  style="color:#002347; font-size: 16px; font-weight: bold; line-height: 40px;">자습한 날짜</a>
+			</div>
 			</div>
 		</div>
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="resources/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/js/popper.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    <script src="resources/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="resources/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="resources/js/owl-carousel-thumb.min.js"></script>
+    <script src="resources/js/jquery.ajaxchimp.min.js"></script>
+    <script src="resources/js/mail-script.js"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="resources/js/gmaps.min.js"></script>
+    <script src="resources/js/theme.js"></script>
 </body>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
