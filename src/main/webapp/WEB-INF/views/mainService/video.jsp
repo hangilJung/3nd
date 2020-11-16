@@ -27,38 +27,49 @@
     		padding-top : 20px;
     		padding-left : 20px;
     	}
+    	#btn-black{
+    		bgcolor:white;
+    		float:left;
+    		border: 3px solid black;
+    		border-radius: 20px;
+    		width:130px;
+    		margin-left:40px;
+    	
+    	}
     </style>
 </head>
 <body>
-	<body>
+
    <div style="margin: 20px 0px 0px 20px;">
-      <div id="videoDiv" style="float:left; border:5px solid yellow; width:600px; height:570px; ">
-         <video src="resources/hgVideo/testVideo.mp4" width="600px" height="100%" controls autoplay></video>
+      <div id="videoDiv" style="float:left; width:65%; height:90%; ">
+         <video src="resources/hgVideo/testVideo.mp4" width="100%" height="100%" controls autoplay></video>
       </div>
-      <div id="cam" style="border:5px solid red; float:left; overflow:auto; margin-left:20px;">
+      <div id="cam" style=" float:left; overflow:auto; margin-left:20px; width:30%; height:90%; ">
          
-            <div style="border:5px solid green; width:400px; height:200px; margin-bottom:10px;">   
+         <div style="border:5px solid green; width:100%; height:50%; margin-bottom:10px;">   
             	<img id="mycam" src="">                
-            </div>
+         </div>
             
-         <div class="wrapper" style="background-color:#ffdd40; border:5px solid black; width:400px; ">
-           <div class="bell" id="bell-1">
+         <div class="wrapper" style="background-color:#ffdd40; width:80%;margin-left:10%; ">
+           <div class="bell" id="bell-1" style="text-align: center;">
              <div class="anchor material-icons layer-1">notifications_active</div>
              <div class="anchor material-icons layer-2">notifications</div>
              <div class="anchor material-icons layer-3">notifications</div>
            </div>
          </div>
          
-         <div style="border:5px solid orange; overflow:auto; margin-top:10px; text-align :center;">            
-            <div >
-             	<button type="button" id="videoOn" >집중도 분석 </button>
-               	<button onclick="lectureClose()" >강의종료</button>
-            </div>
+         <div style="overflow:auto; margin-top:10px; margin-bottom:10px; text-align :center; width:100%; height:100%">            
+            <div id="btn-black">
+  			<a href="#" style="color:black; font-size: 16px; font-weight: bold; line-height: 40px;">집중도분석</a>
+			</div>
+			<div id="btn-black">
+  			<a href="#" style="color:black;font-size: 16px; font-weight: bold; line-height: 40px;">강의종료</a>
+			</div>
          </div>
          
       </div>
    </div>
-</body>
+
 </body>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="resources/js/jquery-3.2.1.min.js"></script>
