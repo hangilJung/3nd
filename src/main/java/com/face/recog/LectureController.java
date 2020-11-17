@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.face.model.ConcentrationVO;
 import com.face.model.LectureDAO;
+import com.face.model.LectureVO;
 import com.face.model.MyLectureVO;
 
 @Controller
@@ -83,5 +84,24 @@ public class LectureController {
 		model.addAttribute("list", list);
 		model.addAttribute("vo",vo);
 		return "lecture/concentration";
+	}
+	
+	
+	@RequestMapping("videdo.do")
+	public String video() {	
+		return "mainService/video";
+	}
+	
+	//강의 영상 경로 찾음
+	@RequestMapping("videoPath.do")
+	public String videoPath(String lecNo, String episode, Model model) {	
+		System.out.println("controller lecNo : " + lecNo );
+		System.out.println("controller episode : " + episode );
+		LectureVO vo = new LectureVO(Integer.parseInt(lecNo), Integer.parseInt(episode));
+		System.out.println("controller : " + vo);
+		String path = dao.videoPath(vo);
+		System.out.println("Controller : " + path);
+		model.addAttribute("path", path);
+		return "mainService/video";
 	}
 }

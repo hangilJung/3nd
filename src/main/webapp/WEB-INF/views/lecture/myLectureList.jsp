@@ -184,7 +184,7 @@
 	          <h3>${list.subject } ${list.lecName }</h3>
 	          <p>${list.lecIntro}</p>
 	          <div style="text-align:right; margin-top:50px; ">
-	          <a class="btn btn-primary" href="lectureSubList.do?lecNo=${list.lecNo}" style="color:#fdc632;
+	          <a class="btn btn-primary" href="myLectureSubList.do?lecNo=${list.lecNo}" style="color:#fdc632;
 			background-color:#002347; border:transparent; font-weight:bold;" >강의세부사항</a>
 	          </div>
 	      </div>

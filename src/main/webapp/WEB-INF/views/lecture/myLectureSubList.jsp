@@ -224,11 +224,12 @@
 				<tr>
 					<td>${list.episode }</td>
 					<td>${list.epiIntro }</td>
-					<td><button type="button" onclick="window.open('${cpath}/video.do?myLecNo=${list.myLecNo}','Lecture','width=1500, height=900');" >강의보기</button></td>
-						
+					<td><button type="button" class="videoClick" onclick="videoMove('${status.current.lecNo}', '${status.current.episode}','${status.current.myLecNo}','${status.current.path}')" >강의보기</button></td>
+					<inpuu type="hidden" class="num" value="${status.current}"/>
 					<td>
 						<c:if test="${list.curTime > 0}">
 							<button onclick="location.href = 'concentration.do?myLecNo=${list.myLecNo}'">집중도분석</button>
+							<!-- onclick="window.open('${cpath}/videoPath.do?episode=${list.episode}&lecNo=${list.lecNo}&myLecNo=${list.myLecNo}', 'Lecture','width=1500, height=900')" -->
 						</c:if>	
 					</td>
 					<!-- onclick="location.href='video.do?myLecNo=${list.myLecNo}'" -->
@@ -252,13 +253,58 @@
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
     <script type="text/javascript">
-		function btnClick(){
+    
+    	function btnClick(){			
 			
 			if(confirm("수강취소 하시겠습니까?") == true){	
 				window.location.href ="myLectureDelete.do?lecNo=${viewAll.get(0).lecNo}";
 			}
 		
-		};
+		};	
+		
+		
+		
+		function videoMove(lecNo, episode, myLecNo, path){
+			$.ajax({
+				url : 'http://localhost:9000/certification',
+				data : {'info' : '${info.getId()}'},
+				success : function(){
+					alert("얼굴 인증 성공! 페이지를 이동합니다.");
+					window.open('${cpath}/videoPath.do?episode=' + episode + '&lecNo=' + lecNo +'&myLecNo='+myLecNo, 'Lecture','width=1500, height=900');
+				},
+				error : function(){
+					alert("얼굴 인증 실패");
+				}
+			});
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		const num = $(".num").val();
+		
+		$('.videoClick').click(function(){
+			$.ajax({
+				url : 'http://localhost:9000/certification',
+				data : {'info' : '${info.getId()}'},
+				success : function(){
+					alert("얼굴 인증 성공! 페이지를 이동합니다.");
+					alert(num);
+				},
+				error : function(){
+					alert("얼굴 인증 실패");
+				}
+			});
+		});
+		*/
 		
 		
 		

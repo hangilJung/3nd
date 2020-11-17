@@ -61,12 +61,6 @@ public class MemberController {
 		return "mainService/allLecture";
 	}
 	
-	//내가 볼 강의를 클릭하면 동영상이 나온다
-	@RequestMapping("/video.do")
-	public String video() {		
-		return "mainService/video";
-	}
-	
 	
 	//================= End 메인 서비스 페이지 ===========================	
 	
@@ -74,13 +68,15 @@ public class MemberController {
 	//회원 정보 업데이트
 		@RequestMapping("/update.do")
 		public String update(
-				@RequestParam String id, 
-				@RequestParam String pw, 
-				@RequestParam String phone,
+				 String id, 
+				 String pw, 
+				 String phone,
 				Model model) {
+			System.out.println("id : "+ id + "pw : " + pw + "phone : " + phone);
 			MemberVO vo = new MemberVO(id, pw, phone);
 			int result = dao.memberUpdate(vo);
-			
+			System.out.println("result : " + result);
+			model.addAttribute("result", result);
 			
 			return "myPage/myPage";
 		}	
@@ -162,8 +158,7 @@ public class MemberController {
 			model.addAttribute("message","");
 		}else {
 			result = "myPage/myPage";
-			model.addAttribute("message", "no");
-			
+			model.addAttribute("message", "no");			
 		}		
 		return result;
 	}

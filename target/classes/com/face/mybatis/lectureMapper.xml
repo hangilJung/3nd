@@ -47,5 +47,10 @@
                 	from myLecture 
                 	where myLecno=#{myLecNo}) b
         	where a.lecNo = b.lecNo and a.episode = b.episode
-	</select>    
+	</select>
+	
+	<!-- video.jsp에 띄울 영상을 찾음 -->
+	<select id="videoPath" resultType="String">
+	    select path from sublecture where lecNo = #{lecNo} and episode = #{episode}	    
+	</select>
 </mapper>

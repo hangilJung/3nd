@@ -44,4 +44,26 @@
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/resources/video/korean.mp4</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94/korean.mp4</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/video/math1.mp4</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94/math1.mp4</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/video/math2.mp4</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94/math2.mp4</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/resources/video/science.mp4</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94/science.mp4</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -75,4 +75,13 @@ public class LectureDAO {
 		map.put("vo", vo);
 		return map;
 	}
+	
+	public String videoPath(LectureVO vo) {
+		SqlSession session = sessionFactory.openSession();
+		String path = session.selectOne("videoPath", vo);
+		System.out.println("DAO : " + path);
+		session.close();
+		return path;
+		
+	}
 }

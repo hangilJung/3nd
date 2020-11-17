@@ -29,6 +29,14 @@ public class LectureVO {
 		this.thumbPath = thumbPath;
 	}
 	
+	
+	//강의 경로 찾기
+	public LectureVO(int lecNo, int episode) {
+		super();
+		this.lecNo = lecNo;
+		this.episode = episode;
+	}
+
 	//강의세부목록
 	public LectureVO(int lecNo, String subject, String lecName, String lecIntro, int allEpi, String thumbPath,
 			String teacher, String targets, String book, String levels, int episode, String epiIntro, String path) {

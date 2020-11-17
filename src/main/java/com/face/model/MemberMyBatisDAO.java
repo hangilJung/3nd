@@ -62,10 +62,8 @@ public class MemberMyBatisDAO {
 	   
 	 //회원정보 수정 전 인증 단계(myPage.jsp)
 	   public String pwCheck(String id) {
-		   System.out.println("DAO에서의 값 : " + id);
 		   SqlSession session=sqlSessionFactory.openSession();
-		   String infoId = session.selectOne("pwCheck", id);
-		   System.out.println("DAO pwInfo 값 : " + infoId);
+		   String infoId = session.selectOne("pwCheck", id);		   
 		   session.close();
 		   return infoId;
 	   }

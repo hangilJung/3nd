@@ -42,7 +42,9 @@
 
    <div style="margin: 20px 0px 0px 20px;">
       <div id="videoDiv" style="float:left; width:65%; height:90%; ">
-         <video src="resources/hgVideo/testVideo.mp4" width="100%" height="100%" controls autoplay></video>
+         <video width="100%" height="100%" controls>
+         	<source src="${cpath}${path}" type="video/mp4">
+         </video>
       </div>
       <div id="cam" style=" float:left; overflow:auto; margin-left:20px; width:30%; height:90%; ">
          
@@ -63,7 +65,7 @@
   			<a href="#" style="color:black; font-size: 16px; font-weight: bold; line-height: 40px;">집중도분석</a>
 			</div>
 			<div id="btn-black">
-  			<a href="#" style="color:black;font-size: 16px; font-weight: bold; line-height: 40px;">강의종료</a>
+  			<a onclick="lectureClose()" style="color:black;font-size: 16px; font-weight: bold; line-height: 40px;">강의종료</a>
 			</div>
          </div>
          
@@ -93,8 +95,24 @@
 		window.focus(); // 현재 window 즉 익스플러러를 윈도우 최상단에 위치
 		window.moveTo(100,100); // 웹 페이지의 창 위치를 0,0 (왼쪽 최상단) 으로 고정
 		window.resizeTo(1480,900); // 웹페이지의 크기를 가로 1280 , 세로 800 으로 고정(확장 및 축소)
-		window.scrollTo(0,250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정
+		window.scrollTo(0,250); // 페이지 상단 광고를 바로 볼 수 있게 스크롤 위치를 조정		
+		
+		
+		/*
+		$.ajax({
+			url : '${cpath}/videoPath.do',
+			data : {'lecNo' : '${lecNo}', 'episode' : '${episode}'},
+			success : function(srcPath){
+				alert("성공");
+				$("#videoPath").attr("src","${srcPath}");
+			},
+			error : function(){
+				alert("실패");
+			}
+		});
+		*/
 		}
+		
 	
 		
 		var send = {'myLecNo':  ${param.myLecNo}};
@@ -115,7 +133,7 @@
 		                }
 		            });
 			
-		});
+		}); 
 		
 	    	   
 	    /* $('#videoOn').click(function(){	   

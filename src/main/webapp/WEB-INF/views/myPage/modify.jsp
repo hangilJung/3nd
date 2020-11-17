@@ -136,12 +136,12 @@
      <div class="container" style="text-align:center; " >
             <div class="modify">
             	<h1>MY PAGE</h1>
-       				<form action="modify.do" method="post">
+       				<form action="${cpath}/update.do" method="post">
        					<br>
        					<br>
        					<div><input type="hidden" name="id" value="${info.getId()}"/>
-	       					<div style="margin-bottom : 20px;"><input type="password" id="pw" placeholder="비밀번호를 입력하시요" ></div>     						
-	       					<div style="margin-bottom : 20px;"><input type="text" id="phone" placeholder="전화번호" ></div>
+	       					<div style="margin-bottom : 20px;"><input type="password" name="pw" placeholder="비밀번호를 입력하시요" ></div>     						
+	       					<div style="margin-bottom : 20px;"><input type="text" name="phone" placeholder="전화번호" ></div>
 	       					<c:choose>
 	       						<c:when test="${info.getImg() == 'Unregistered'}">
 	       							<div style="margin-bottom : 20px;"><button type="button" id="registeration" >얼굴 사진 등록하기</button></div>
