@@ -217,7 +217,7 @@
 	$('#registeration').click(function(){
 		alert("카메라를 봐주세요.");
 		$.ajax({
-			url : 'http://localhost:9000/makeDir',
+			url : 'http://localhost:5000/makeDir',
 			data : {'info' : '${info.getId()}' },
 			success : function(){					
 				alert("얼굴 사진 등록 완료");	

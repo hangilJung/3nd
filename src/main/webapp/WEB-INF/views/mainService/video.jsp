@@ -62,7 +62,7 @@
          
          <div style="overflow:auto; margin-top:10px; margin-bottom:10px; text-align :center; width:100%; height:100%">            
             <div id="btn-black">
-  			<a href="#" style="color:black; font-size: 16px; font-weight: bold; line-height: 40px;">집중도분석</a>
+  			<a href="#" id="videoOn" style="color:black; font-size: 16px; font-weight: bold; line-height: 40px;">집중도분석</a>
 			</div>
 			<div id="btn-black">
   			<a onclick="lectureClose()" style="color:black;font-size: 16px; font-weight: bold; line-height: 40px;">강의종료</a>

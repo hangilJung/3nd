@@ -266,7 +266,7 @@
 		
 		function videoMove(lecNo, episode, myLecNo, path){
 			$.ajax({
-				url : 'http://localhost:9000/certification',
+				url : 'http://localhost:5000/certification',
 				data : {'info' : '${info.getId()}'},
 				success : function(){
 					alert("얼굴 인증 성공! 페이지를 이동합니다.");
