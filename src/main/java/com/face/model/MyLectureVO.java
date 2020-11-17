@@ -31,6 +31,22 @@ public class MyLectureVO {
 	}
 
 
+	public MyLectureVO(int lecNo, int episode, int myLecNo) {
+		super();
+		this.lecNo = lecNo;
+		this.episode = episode;
+		this.myLecNo = myLecNo;
+	}
+	
+	
+	public MyLectureVO(int lecNo, int episode, String path, int myLecNo) {
+		super();
+		this.lecNo = lecNo;
+		this.episode = episode;
+		this.path = path;
+		this.myLecNo = myLecNo;
+	}
+
 	public MyLectureVO(int lecNo, String subject, String lecName, String lecIntro, String thumbPath, int allEpi,
 			String teacher, String targets, String book, String levels, int episode, String epiIntro, String path,
 			int myLecNo, String id, int curTime) {

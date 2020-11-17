@@ -115,9 +115,6 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
-                </li>  
-                <li class="nav-item">
                   <a class="nav-link" href="timerCalendar.do" style="color:white;">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">
@@ -262,7 +259,7 @@
 		
 		};	
 		
-		
+		/*
 		
 		function videoMove(lecNo, episode, myLecNo, path){
 			$.ajax({
@@ -278,7 +275,11 @@
 			});
 		}
 		
+		*/
 		
+		function videoMove(lecNo, episode, myLecNo, path){
+			window.open('${cpath}/videoPath.do?episode=' + episode + '&lecNo=' + lecNo +'&myLecNo='+myLecNo+'&path='+path, 'Lecture','width=1500, height=900');
+		}
 		
 		
 		

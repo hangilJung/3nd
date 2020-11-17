@@ -13,14 +13,6 @@
     />
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title>About Us</title>
-    <script type="text/javascript">
-    	
-    	function login(){
-    		location.href='${cpath}/main.do'
-    		if()
-    	}
-    	
-    </script>
    
     <style type="text/css">
 		a:link { color: red; text-decoration: none;}
@@ -63,7 +55,7 @@
         		</div>   	
         		<div class="btn-group-vertical">
         			<span>
-        				<input onclick="login()" type="submit"  value=":)로그인 " style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
+        				<input id="sub" type="submit"  value=":)로그인 " style="display:inline; width:408px;" class="btn btn-primary btn-lg"/>
         			</span>
         		</div>       	
         	</div>
@@ -97,6 +89,14 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="resources/js/gmaps.min.js"></script>
     <script src="resources/js/theme.js"></script>
-    
+    <script>
+    	$(function(){
+    		if('${oops}'== ""){
+    			alert("아이디와 비밀번호가 다릅니다.");
+    		}
+    	});
+    	
+    	
+    </script>
   </body>
 </html>

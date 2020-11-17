@@ -86,20 +86,23 @@ public class MemberController {
 	//================= Start 로그인 로그아웃 ===========================
 	//로그인 화면으로 이동
 	@RequestMapping("/loginForm.do")
-	public String loginForm(MemberVO vo) {
+	public String loginForm(MemberVO vo, Model model) {
+		model.addAttribute("oops", "login");
 		return "member/loginForm";
 	}
 	
 	//로그인 버튼 클릭
 	@RequestMapping("/login.do")
-	public String login(MemberVO vo, HttpSession session) {
+	public String login(MemberVO vo, HttpSession session, Model model) {
 		MemberVO info = dao.login(vo);
+		System.out.println(info);
 		if(info!=null) {			
 			System.out.println("로그인 성공");			
 			session.setAttribute("info", info);			
 		}else {
 			System.out.println("로그인 실패");
-			return "redirect:/loginForm.do";
+			model.addAttribute("oops", info);
+			return "member/loginForm";
 		}
 		
 		return "redirect:/main.do";

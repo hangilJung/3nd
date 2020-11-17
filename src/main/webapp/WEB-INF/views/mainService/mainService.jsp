@@ -86,9 +86,6 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="contact.html" style="color:white;">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">

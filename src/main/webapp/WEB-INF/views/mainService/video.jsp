@@ -43,7 +43,7 @@
    <div style="margin: 20px 0px 0px 20px;">
       <div id="videoDiv" style="float:left; width:65%; height:90%; ">
          <video width="100%" height="100%" controls>
-         	<source src="${cpath}${path}" type="video/mp4">
+         	<source src="${cpath}${path.getPath()}" type="video/mp4">
          </video>
       </div>
       <div id="cam" style=" float:left; overflow:auto; margin-left:20px; width:30%; height:90%; ">
@@ -143,6 +143,7 @@
 	    //강의 창을 닫음
 	    function lectureClose(){
 	    	self.close();
+	    	opener.document.location.href="videoClose.do?episode="+${path.getEpisode()}+"&lecNo="+${path.getLecNo()}+"&myLecNo="+${path.getMyLecNo()};
 	    }
 	    
 	    

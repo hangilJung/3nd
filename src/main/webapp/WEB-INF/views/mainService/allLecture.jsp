@@ -93,9 +93,6 @@
                       <a class="nav-link" href="myLectureList.do">수강중인 강의</a>
                     </li>
                   </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
                 </li>  
                 <li class="nav-item">
                   <a class="nav-link" href="timerCalendar.do" style="color:white;">자습 타이머</a>

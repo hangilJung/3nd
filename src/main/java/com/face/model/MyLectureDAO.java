@@ -56,5 +56,15 @@ public class MyLectureDAO {
 		map.put("vo", vo);
 		return map;
 	}
-
+	
+	//강의 영상 시청 후 분석이 되고 강의종료를 하면 집중도 분석 버튼을 볼 수 있게 해줌.
+		public int myLectureUpdate(MyLectureVO vo) {
+			SqlSession session = sessionFactory.openSession();
+			System.out.println(vo.toString());
+			int result= session.update("myLectureUpdate", vo);
+			session.commit();
+			session.close();
+			return result;
+			
+		}
 }

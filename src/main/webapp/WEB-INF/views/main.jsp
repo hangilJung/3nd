@@ -86,6 +86,8 @@
               <span class="icon-bar"></span>
             </button>
             <!-- Collect the nav links, forms, and other content for toggling -->
+            <c:choose>
+            <c:when test="${info != null }">            
             <div
               class="collapse navbar-collapse offset"
               id="navbarSupportedContent"
@@ -113,9 +115,6 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="timerCalendar.do">집중도 분석</a>
-                </li> 
-                <li class="nav-item">
                   <a class="nav-link" href="timerCalendar.do">자습 타이머</a>
                 </li>
                 <li class="nav-item submenu dropdown">
@@ -138,6 +137,8 @@
                 </li>  
               </ul>
             </div>
+            </c:when>
+            </c:choose>
           </div>
         </nav>
       </div>
@@ -203,7 +204,8 @@
 	    	if('${info.getImg()}'=="Unregistered"){
 	    		alert("얼굴 사진 등록을 위해 페이지 이동을 합니다.");
 	    		location.href="${cpath}/modify2.do";
-    		}
+    		}	    	
+	    	
 	    });
     </script>
   </body>

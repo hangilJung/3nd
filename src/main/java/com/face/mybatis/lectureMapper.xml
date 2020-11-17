@@ -53,4 +53,11 @@
 	<select id="videoPath" resultType="String">
 	    select path from sublecture where lecNo = #{lecNo} and episode = #{episode}	    
 	</select>
+	
+	
+	<!-- 강의 영상을 보며 집중도 분석을 하는데 강의 종료를 누르면 그 강의의 집중도 분석 버튼을 보여주게 하는 업데이트문 -->
+	<update id="myLectureUpdate" parameterType="com.face.model.MyLectureVO">
+	    update myLecture set curtime = 1 where lecNo = #{lecNo} and episode = #{episode} and myLecNo = #{myLecNo}	    
+	</update>
+	
 </mapper>
