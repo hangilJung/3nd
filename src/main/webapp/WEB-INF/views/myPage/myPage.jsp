@@ -23,6 +23,15 @@
     <link rel="stylesheet" href="resources/vendors/nice-select/css/nice-select.css" />
     <!-- main css -->
     <link rel="stylesheet" href="resources/css/style.css" />
+  	<style>
+  	#ps{
+  		border-radius:5px;
+  		background-color:#fdc632;
+  		color:#002347;
+  		font-weight:bold;
+  	}
+  	</style>
+  
   </head>
 
   <body>
@@ -72,15 +81,15 @@
                     >강 의</a>
                   <ul class="dropdown-menu">
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
+                      <a class="nav-link" href="allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/myLectureList.do">수강중인 강의</a>
+                      <a class="nav-link" href="myLectureList.do">수강중인 강의</a>
                     </li>
                   </ul>
                 </li> 
         		<li class="nav-item">
-                  <a class="nav-link" href="timerCalendar.do" style="color:white;">집중도 분석</a>
+                  <a class="nav-link" href="timerCalendar.do" style="color:white;">자습 타이머</a>
                 </li> 
                 <li class="nav-item submenu dropdown">
                   <a
@@ -141,7 +150,9 @@
        					<br>
        					<br>
        					<input type="password" name="pwCheck" placeholder="비밀번호를 입력하세요" />
-       					<input type="submit" value="확인"/>
+       					<div style="margin-top:20px;">
+       					<input id="ps" type="submit" value="확인"/>
+       					</div>
        				</form>
        		</div>
        	</div>

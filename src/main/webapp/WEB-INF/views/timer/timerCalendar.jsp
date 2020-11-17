@@ -93,7 +93,7 @@
 }
 
 .input-box {
-	width: 50%;
+	width: 50%; 
 	margin-right: 20px;
 	height: auto;
 	background: #0b0809;
@@ -201,7 +201,7 @@
 		margin: 0 0 10px 0;
 	}
 	.input-box {
-    	width: 100px;
+		width: 200px; /* 수정 */
     	height: auto;
     	background: black;
     	margin-left:5px;
@@ -283,7 +283,7 @@
 	.btnBox .fa{
 		margin: 0px 5px;
 		font-size: 30pt;
-		color: #FAED7D;
+		color: #Fdc632;
 		cursor: pointer;
 	}
     #btn-black{
@@ -328,8 +328,8 @@
               id="navbarSupportedContent"
             >
               <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="${cpath}/main.do">홈</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="${cpath}/main.do" style="color:#fdc632;">홈</a>
                 </li>
                 <li class="nav-item submenu dropdown">
                   <a
@@ -346,10 +346,10 @@
                       <a class="nav-link" href="${cpath}/allLecture.do">전체 강의 목록</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="${cpath}/myLectureList.do">수강중인 강의</a>
+                      <a class="nav-link" href="${cpath}/mainService.do">수강중인 강의</a>
                     </li>
                   </ul>
-                </li>                
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="timerCalendar.do" style="color:white;">자습 타이머</a>
                 </li>
@@ -398,14 +398,15 @@
 				</div>
 				<div class="input-wrap" style="float:left; padding-left:10px">
 					<input type="text" id="input-box" class="input-box">	<!-- 자습시간 -->
+					<button id="save" onclick="saveSelfStudy()">저장하기</button>		<!-- 저장버튼 -->			
 				</div>
 				<br>
-			
+				<br>
 				<div id="box" style="text-align:center; margin-top:20px">
 					<div id='timerBox' class="timerBox">
 					<div id="time" class="time">00:00:00</div>
-					
 					</div>
+					<br>
 					<div class="btnBox" style="text-align:center;">
 						<i id="startbtn" class="fa fa-play" aria-hidden="true"></i>
 						<i id="pausebtn" class="fa fa-pause" aria-hidden="true"></i>
@@ -467,10 +468,8 @@
 	var first = new Date(today.getFullYear(), today.getMonth(), 1);	//표시할 날짜의 1일
 	var pageFirst = first;	
 	var pageYear;	// 윤년인지 아닌지에 따른 마지막 일
-	var dayList = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-			'Friday', 'Saturday' ];	//영어 요일 리스트
-	var monthList = [ '1', '2', '3', '4', '5', '6',
-			'7', '8', '9', '10', '11', '12' ];	//달
+	var dayList = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ];	//영어 요일 리스트
+	var monthList = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12' ];	//달
 	var leapYear = [ 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];	//윤년일때 마지막 일
 	var notLeapYear = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];	//윤년이 아닐때 마지막 일 
 	
@@ -483,124 +482,132 @@
 	var studyTime = "<%=studyTime%>".split(",");	//서버에서 받아온 자습 시간
 	var mainTodayDay = document.querySelector('#main-day');	//요일
 	var mainTodayDate = document.querySelector('#main-date');	//일
-	var date = "<%=date%>".split(",");	/* 20201015 20201103 */	//서버에서 받아온 자습 날짜
-	var y = new Array();	//자습 날짜의 년
-	var m = new Array();	//자습 날짜의 월
-	var d = new Array();	//자습 날짜의 일
-	
-	for(var i = 0; i<date.length; i++){	//자습 날짜의 년 월 일을 분리하여 저장
-		y[i] = date[i].substr(0,4);	/* 2020 */
-		
-		if(date[i].substr(4,1) == 0){	/* 11 */
-			m[i] = date[i].substr(5,1); 
-		}else{
-			m[i] = date[i].substr(4,2);
+	var date = "<%=date%>".split(","); /* 20201015 20201103 *///서버에서 받아온 자습 날짜
+	var y = new Array(); //자습 날짜의 년
+	var m = new Array(); //자습 날짜의 월
+	var d = new Array(); //자습 날짜의 일
+
+	for (var i = 0; i < date.length; i++) { //자습 날짜의 년 월 일을 분리하여 저장
+		y[i] = date[i].substr(0, 4); /* 2020 */
+
+		if (date[i].substr(4, 1) == 0) { /* 11 */
+			m[i] = date[i].substr(5, 1);
+		} else {
+			m[i] = date[i].substr(4, 2);
 		}
-		
-		if(date[i].substr(6,1) == 0){	/* 03 */
-			d[i] = date[i].substr(7,1); 
-		}else{
-			d[i] = date[i].substr(6,2);
+
+		if (date[i].substr(6, 1) == 0) { /* 03 */
+			d[i] = date[i].substr(7, 1);
+		} else {
+			d[i] = date[i].substr(6, 2);
 		}
 	}
-	
-	//달력 그리기
-	function showCalendar() {	
-		currentTitle.innerHTML = first.getFullYear() + '년' + '&nbsp;&nbsp;&nbsp;&nbsp;' + monthList[first.getMonth()] + '월';
 
-		let monthCnt = 100;	//100, 101, 102, 103, 104, 105
-		let cnt = 1;	//1,2,3,4,5,6
+	//달력 그리기
+	function showCalendar() {
+		currentTitle.innerHTML = first.getFullYear() + '년'
+				+ '&nbsp;&nbsp;&nbsp;&nbsp;' + monthList[first.getMonth()]
+				+ '월';
+
+		let monthCnt = 100; //100, 101, 102, 103, 104, 105
+		let cnt = 1; //1,2,3,4,5,6
 		for (var i = 0; i < 6; i++) {
 			var $tr = document.createElement('tr');
 			$tr.setAttribute('id', monthCnt);
 			for (var j = 0; j < 7; j++) {
-				if ((i === 0 && j < first.getDay()) || cnt > pageYear[first.getMonth()]) {	//첫번째주이고 첫날보다 이전 값일때 or 월의 마지막 일보다 큰 값일때
-					var $td = document.createElement('td');	//빈 td 생성
+				if ((i === 0 && j < first.getDay())
+						|| cnt > pageYear[first.getMonth()]) { //첫번째주이고 첫날보다 이전 값일때 or 월의 마지막 일보다 큰 값일때
+					var $td = document.createElement('td'); //빈 td 생성
 					$tr.appendChild($td);
 				} else {
 					var $td = document.createElement('td');
-					$td.textContent = cnt;	//일 표시
-					$td.setAttribute('id', cnt);	//아이디 부여
+					$td.textContent = cnt; //일 표시
+					$td.setAttribute('id', cnt); //아이디 부여
 					$tr.appendChild($td);
 					cnt++;
 				}
 			}
 			monthCnt++;
 			calendarBody.appendChild($tr);
-		}	
-		
-		if(todayDate.getFullYear()==first.getFullYear()){	//날짜가 오늘일 때
-			if(todayDate.getMonth()+1==first.getMonth()+1){
-					var todayD = document.getElementById(today.getDate());
-					todayD.classList.add('active');	//클래스명 active 추가							
+		}
+
+		if (todayDate.getFullYear() == first.getFullYear()) { //날짜가 오늘일 때
+			if (todayDate.getMonth() + 1 == first.getMonth() + 1) {
+				var todayD = document.getElementById(today.getDate());
+				todayD.classList.add('active'); //클래스명 active 추가							
 			}
 		}
 	}
-	
+
 	//왼쪽에 요일, 일 표시
 	function showMain() {
 		mainTodayDay.innerHTML = dayList[today.getDay()];
 		mainTodayDate.innerHTML = today.getDate();
 	}
-	
+
 	//자습날짜 데이터가 있으면 클래스명 is 부여
-	function isIsNot(){
-		for(var i = 0; i<date.length; i++){
-			if(y[i]==first.getFullYear()){
-				if(m[i]==first.getMonth()+1){
-					document.getElementById(d[i]).setAttribute('class','is');
+	function isIsNot() {
+		for (var i = 0; i < date.length; i++) {
+			if (y[i] == first.getFullYear()) {
+				if (m[i] == first.getMonth() + 1) {
+					document.getElementById(d[i]).setAttribute('class', 'is');
 				}
 			}
 		}
 	}
-	
+
 	//현재 페이지의 년, 월, 클릭한 td의 아이디값이 자습날짜의 년, 월, 일과 같을 시 자습시간 표시
-	function click(e){
-		var idNum = $(this).attr('id');	//클릭한 td의 id값(일)
-		var clickedToday = new Date(today.getFullYear(), today.getMonth(), idNum);	//표시할 날짜 수정
-		mainTodayDay.innerHTML = dayList[clickedToday.getDay()];	//수정한 날짜로 요일 표시
-		mainTodayDate.innerHTML = idNum;	//클릭한 id값으로 일 표시
-		document.getElementById('input-box').value = "";	//자습시간 지움	
-		
-		for(var i = 0; i<date.length; i++){
-			if(y[i]==first.getFullYear()){
-				if(m[i]==first.getMonth()+1){
-					if(d[i] == idNum){
-						document.getElementById('input-box').value = studyTime[i];	
+	function click(e) {
+		var idNum = $(this).attr('id'); //클릭한 td의 id값(일)
+		var clickedToday = new Date(today.getFullYear(), today.getMonth(),
+				idNum); //표시할 날짜 수정
+		mainTodayDay.innerHTML = dayList[clickedToday.getDay()]; //수정한 날짜로 요일 표시
+		mainTodayDate.innerHTML = idNum; //클릭한 id값으로 일 표시
+		document.getElementById('input-box').value = ""; //자습시간 지움	
+
+		for (var i = 0; i < date.length; i++) {
+			if (y[i] == first.getFullYear()) {
+				if (m[i] == first.getMonth() + 1) {
+					if (d[i] == idNum) {
+						var hh = parseInt(studyTime[i]/3600);
+						var mm = parseInt(studyTime[i]/60);
+						var ss = studyTime[i]%60;
+						
+						var total = hh + '시간 ' + mm + '분 ' + ss + '초';
+						document.getElementById('input-box').value = total;				     						
 					}
 				}
 			}
-		}	
-		
-		if(todayDate.getFullYear()==first.getFullYear()){	//클릭한 날짜가 오늘일 때
-			if(todayDate.getMonth()+1==first.getMonth()+1){
-				if(todayDate.getDate()==idNum){					
-					
-					
+		}
+
+		if (todayDate.getFullYear() == first.getFullYear()) { //클릭한 날짜가 오늘일 때
+			if (todayDate.getMonth() + 1 == first.getMonth() + 1) {
+				if (todayDate.getDate() == idNum) {
+
 				}
 			}
-		}	
+		}
 	}
-	
-	var prevBtn = document.getElementById('prev');	//이전달 버튼
-	var nextBtn = document.getElementById('next');	//다음달 버튼
-	prevBtn.addEventListener('click', prev);	//이전달 버튼 click이벤트 add
-	nextBtn.addEventListener('click', next);	//다음달 버튼 click이벤트 add
-	
+
+	var prevBtn = document.getElementById('prev'); //이전달 버튼
+	var nextBtn = document.getElementById('next'); //다음달 버튼
+	prevBtn.addEventListener('click', prev); //이전달 버튼 click이벤트 add
+	nextBtn.addEventListener('click', next); //다음달 버튼 click이벤트 add
+
 	//모든 td에 click 이벤트 add
-	function clickAdd(){
-		tds = document.querySelectorAll('tbody tr td');	//모든 td
-		[].forEach.call(tds, function(col){	//유사배열일때 배열 메서드를 사용하는 방법
-			col.addEventListener('click',click,false);
-		});	
+	function clickAdd() {
+		tds = document.querySelectorAll('tbody tr td'); //모든 td
+		[].forEach.call(tds, function(col) { //유사배열일때 배열 메서드를 사용하는 방법
+			col.addEventListener('click', click, false);
+		});
 	}
-	
-	showCalendar();	//달력 그리기
-	showMain();	//왼쪽에 요일, 일 표시
-	
-	isIsNot();	//자습날짜 데이터가 있으면 클래스명 is 부여
-	clickAdd();	//모든 td에 click 이벤트 add
-	
+
+	showCalendar(); //달력 그리기
+	showMain(); //왼쪽에 요일, 일 표시
+
+	isIsNot(); //자습날짜 데이터가 있으면 클래스명 is 부여
+	clickAdd(); //모든 td에 click 이벤트 add
+
 	//달력 지우기
 	function removeCalendar() {
 		let catchTr = 100;
@@ -613,8 +620,8 @@
 
 	//이전달
 	function prev() {
-		document.getElementById('input-box').value = "";	//자습시간 지움
-		if (pageFirst.getMonth() === 1) {	//페이지의 날짜가 1월일때 이전 년으로 이동
+		document.getElementById('input-box').value = ""; //자습시간 지움
+		if (pageFirst.getMonth() === 1) { //페이지의 날짜가 1월일때 이전 년으로 이동
 			pageFirst = new Date(first.getFullYear() - 1, 12, 1);
 			first = pageFirst;
 			if (first.getFullYear() % 4 === 0) {
@@ -626,22 +633,23 @@
 			pageFirst = new Date(first.getFullYear(), first.getMonth() - 1, 1);
 			first = pageFirst;
 		}
-		today = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
-		
-		removeCalendar();	//달력 지우기
-		showCalendar();	//달력 그리기
-		
+		today = new Date(today.getFullYear(), today.getMonth() - 1, today
+				.getDate());
+
+		removeCalendar(); //달력 지우기
+		showCalendar(); //달력 그리기
+
 		mainTodayDay.innerHTML = "";
 		mainTodayDate.innerHTML = "";
-		
-		isIsNot();	//자습날짜 데이터가 있으면 클래스명 is 부여
-		clickAdd();	//모든 td에 click 이벤트 add	
+
+		isIsNot(); //자습날짜 데이터가 있으면 클래스명 is 부여
+		clickAdd(); //모든 td에 click 이벤트 add	
 	}
 
 	//다음달
 	function next() {
-		document.getElementById('input-box').value = "";	//자습시간 지움
-		if (pageFirst.getMonth() === 12) {	//페이지의 날짜가 12월일때 다음 년으로 이동
+		document.getElementById('input-box').value = ""; //자습시간 지움
+		if (pageFirst.getMonth() === 12) { //페이지의 날짜가 12월일때 다음 년으로 이동
 			pageFirst = new Date(first.getFullYear() + 1, 1, 1);
 			first = pageFirst;
 			if (first.getFullYear() % 4 === 0) {
@@ -653,101 +661,144 @@
 			pageFirst = new Date(first.getFullYear(), first.getMonth() + 1, 1);
 			first = pageFirst;
 		}
-		today = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
-		
-		removeCalendar();	//달력 지우기
-		showCalendar();	//달력 그리기
-		
+		today = new Date(today.getFullYear(), today.getMonth() + 1, today
+				.getDate());
+
+		removeCalendar(); //달력 지우기
+		showCalendar(); //달력 그리기
+
 		mainTodayDay.innerHTML = "";
 		mainTodayDate.innerHTML = "";
-		
-		isIsNot();	//자습날짜 데이터가 있으면 클래스명 is 부여
-		clickAdd();	//모든 td에 click 이벤트 add
+
+		isIsNot(); //자습날짜 데이터가 있으면 클래스명 is 부여
+		clickAdd(); //모든 td에 click 이벤트 add
 	}
-	
-	
-	
-	
-	
-	
+
 	///////////////타이머영역
 	var time = 0;
 	var starFlag = true;
-	$(document).ready(function(){
-	  buttonEvt();
+	var hour = 0;
+	var min = 0;
+	var sec = 0;
+	var timer;
+	var current = 1; //현재값 초기화
+	
+	$(document).ready(function() {
+		buttonEvt();
 	});
 
-	function init(){
-	  document.getElementById("time").innerHTML = "00:00:00";
+	function init() {
+		document.getElementById("time").innerHTML = "00:00:00";
 	}
-
-	function buttonEvt(){
-	  var hour = 0;
-	  var min = 0;
-	  var sec = 0;
-	  var timer;
-
-	  // start btn
-	  $("#startbtn").click(function(){
-
-	    if(starFlag){
-	      $(".fa").css("color","#FAED7D")
-	      this.style.color = "#4C4C4C";
-	      starFlag = false;
-
-	      if(time == 0){
-	        init();
-	      }
-
-	      timer = setInterval(function(){
-	        time++;
-
-	        min = Math.floor(time/60);
-	        hour = Math.floor(min/60);
-	        sec = time%60;
-	        min = min%60;
-
-	        var th = hour;
-	        var tm = min;
-	        var ts = sec;
-	        if(th<10){
-	        th = "0" + hour;
-	        }
-	        if(tm < 10){
-	        tm = "0" + min;
-	        }
-	        if(ts < 10){
-	        ts = "0" + sec;
-	        }
-
-	        document.getElementById("time").innerHTML = th + ":" + tm + ":" + ts;
-
-	      }, 1000);
-	    }
-	  });
-
-	  // pause btn
-	  $("#pausebtn").click(function(){
-	    if(time != 0){
-	      $(".fa").css("color","#FAED7D")
-	      this.style.color = "#4C4C4C";
-	      clearInterval(timer);
-	      starFlag = true;
-	    }
-	  });
-
-	  // stop btn
-	  $("#stopbtn").click(function(){
-	    if(time != 0){
-	      $(".fa").css("color","#FAED7D")
-	      this.style.color = "#4C4C4C";
-	      clearInterval(timer);
-	      starFlag = true;
-	      time = 0;
-	      init();
-	    }
-	  });
-	}	
 	
+	function buttonEvt(){
+	     // start btn
+	     $("#startbtn").click(function(){
+	
+	       if(starFlag){
+	         $(".fa").css("color","#FAED7D")
+	         this.style.color = "#4C4C4C";
+	         starFlag = false;
+	
+	         if(time == 0){
+	           init();
+	         }    
+	         
+	          timer = setInterval(function(){
+	           time++;
+	
+	           min = Math.floor(time/60);
+	           hour = Math.floor(min/60);
+	           sec = time%60;
+	           min = min%60;
+	
+	           var th = hour;
+	           var tm = min;
+	           var ts = sec;
+	           if(th<10){
+	           th = "0" + hour;
+	           }
+	           if(tm < 10){
+	           tm = "0" + min;
+	           }
+	           if(ts < 10){
+	           ts = "0" + sec;
+	           }
+	
+	           document.getElementById("time").innerHTML = th + ":" + tm + ":" + ts;
+	
+	         }, 1000);
+	       } 
+	       console.log('재생');
+	       poll(); //연결 성공시 poll() 재귀 
+	     });
+	
+	     // pause btn
+	     $("#pausebtn").click(function(){
+	       if(time != 0){
+	         $(".fa").css("color","#FAED7D")
+	         this.style.color = "#4C4C4C";
+	         clearInterval(timer);
+	         starFlag = true;
+	         console.log('일시정지');
+	         poll(); //연결 성공시 poll() 재귀 
+	       }
+	     });
+	
+	     // stop btn
+	     $("#stopbtn").click(function(){
+	       if(time != 0){
+	         $(".fa").css("color","#FAED7D")
+	         this.style.color = "#4C4C4C";
+	         clearInterval(timer);
+	         starFlag = true;
+	         time = 0;
+	         init();
+	       }
+	     });
+	}   
+	
+	
+	function poll() {
+		$.ajax({
+			url : "http://localhost:5000/analysis/selfStudy",
+			type : "GET",
+			timeout : 0, 
+			success : function(data) {							
+						if (current != data) {													
+							if(data == 0){							// 1 -> 0 : 일시정지
+								$("#pausebtn").trigger("click");
+								
+							}else if(data == 1){					// 0 -> 1 : 시작
+								$("#startbtn").trigger("click");							
+							}
+							current = data;		
+						}
+			},
+			error : function() {
+				alert('접속실패');
+			}
+		});
+	}
+	
+	function saveSelfStudy(){
+		
+		if(confirm("총 자습시간을 저장하시겠습니까?")){	//저장
+			var s_date = new Date(); 
+			var s_year = s_date.getFullYear(); 
+			var s_month = new String(s_date.getMonth()+1); 
+			var s_day = new String(s_date.getDate()); 
+
+			// 한자리수일 경우 0을 채워준다. 
+			if(s_month.length == 1){ 
+				s_month = "0" + s_month; 
+			} 
+			if(s_day.length == 1){ 
+				s_day = "0" + s_day; 
+			} 
+			stoday = s_year + "" + s_month + "" + s_day;
+			location.href="insertSelfStudy.do?studyTime="+time+"&today="+stoday;					
+		}
+	};
 </script>
 </html>
