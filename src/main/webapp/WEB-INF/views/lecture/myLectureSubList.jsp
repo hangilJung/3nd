@@ -224,10 +224,10 @@
 					<td><button type="button" class="videoClick" onclick="videoMove('${status.current.lecNo}', '${status.current.episode}','${status.current.myLecNo}','${status.current.path}')" >강의보기</button></td>
 					<inpuu type="hidden" class="num" value="${status.current}"/>
 					<td>
-						<c:if test="${list.curTime > 0}">
+						
 							<button onclick="location.href = 'concentration.do?myLecNo=${list.myLecNo}'">집중도분석</button>
 							<!-- onclick="window.open('${cpath}/videoPath.do?episode=${list.episode}&lecNo=${list.lecNo}&myLecNo=${list.myLecNo}', 'Lecture','width=1500, height=900')" -->
-						</c:if>	
+						
 					</td>
 					<!-- onclick="location.href='video.do?myLecNo=${list.myLecNo}'" -->
 				</tr>
